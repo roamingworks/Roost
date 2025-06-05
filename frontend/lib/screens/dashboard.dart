@@ -1,6 +1,14 @@
+// Packages
 import 'package:flutter/material.dart';
+import 'package:intl/intl.dart';
+
+// Components
 import 'package:frontend/components/togglehostel.dart';
+
+
+
 class MealPlannerDashboard extends StatefulWidget {
+  MealPlannerDashboard({super.key});
   @override
   _MealPlannerDashboardState createState() => _MealPlannerDashboardState();
 }
@@ -18,6 +26,8 @@ class _MealPlannerDashboardState extends State<MealPlannerDashboard> {
 
   final List<String> days = ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'];
   final List<String> fullDays = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'];
+
+  final formattedDate = DateFormat('d MMMM y').format(DateTime.now());
 
   @override
   Widget build(BuildContext context) {
@@ -101,7 +111,7 @@ class _MealPlannerDashboardState extends State<MealPlannerDashboard> {
                 child: Column(
                   children: [
                     Text(
-                      'Today, 29 May 2025',
+                      'Today, $formattedDate',
                       textAlign: TextAlign.values[5],
                       style: TextStyle(
                       fontSize: 20,
@@ -124,6 +134,8 @@ class _MealPlannerDashboardState extends State<MealPlannerDashboard> {
           ),
         ),
       ),
+
+      //bottomNavigationBar: ,
     );
   }
 }
