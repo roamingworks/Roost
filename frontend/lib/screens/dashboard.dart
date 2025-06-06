@@ -5,6 +5,9 @@ import 'package:intl/intl.dart';
 // Components
 import 'package:frontend/components/togglehostel.dart';
 
+// Themes
+import 'package:frontend/constants/colors.dart';
+
 
 
 class MealPlannerDashboard extends StatefulWidget {
@@ -43,10 +46,10 @@ class _MealPlannerDashboardState extends State<MealPlannerDashboard> {
                   Expanded(
                     child: ElevatedButton.icon(
                       onPressed: () {},
-                      icon: Icon(Icons.restaurant, color: Theme.of(context).colorScheme.primary),
-                      label: Text('Plan Meal', style: TextStyle(fontSize: 20,color: Theme.of(context).colorScheme.primary, fontWeight: FontWeight.bold)),
+                      icon: Icon(Icons.restaurant, color: ColorTheme.appSecondary),
+                      label: Text('Plan Meal', style: TextStyle(fontSize: 20,color: ColorTheme.appSecondary, fontWeight: FontWeight.bold)),
                       style: ElevatedButton.styleFrom(
-                        backgroundColor: Theme.of(context).colorScheme.secondary,
+                        backgroundColor: ColorTheme.appTertiary,
                         padding: EdgeInsets.symmetric(vertical: 12),
                         shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(8)),
                       ),
@@ -57,8 +60,8 @@ class _MealPlannerDashboardState extends State<MealPlannerDashboard> {
                     child: OutlinedButton.icon(
                       onPressed: () {
                       },
-                      icon: Icon(Icons.bar_chart, color: Theme.of(context).colorScheme.onTertiary),
-                      label: Text('View Stats', style: TextStyle(fontSize: 20,color: Theme.of(context).colorScheme.onTertiary)),
+                      icon: Icon(Icons.bar_chart, color: ColorTheme.textSecondary),
+                      label: Text('View Stats', style: TextStyle(fontSize: 20,color: ColorTheme.textSecondary)),
                       style: OutlinedButton.styleFrom(
                         padding: EdgeInsets.symmetric(vertical: 12),
                         side: BorderSide.none
@@ -84,9 +87,9 @@ class _MealPlannerDashboardState extends State<MealPlannerDashboard> {
                         margin: EdgeInsets.symmetric(horizontal: 2),
                         padding: EdgeInsets.symmetric(vertical: 12),
                         decoration: BoxDecoration(
-                          color: isSelected ? Theme.of(context).colorScheme.secondary : Colors.transparent,
+                          color: isSelected ? ColorTheme.appTertiary : Colors.transparent,
                           border: Border.all(
-                            color: isSelected ? Theme.of(context).colorScheme.secondary : Theme.of(context).colorScheme.onTertiary,
+                            color: isSelected ? ColorTheme.appTertiary : ColorTheme.textSecondary,
                             width: 2,
                           ),
                           borderRadius: BorderRadius.circular(25),
@@ -95,7 +98,7 @@ class _MealPlannerDashboardState extends State<MealPlannerDashboard> {
                           days[index],
                           textAlign: TextAlign.center,
                           style: TextStyle(
-                            color: isSelected ? Theme.of(context).colorScheme.primary : Theme.of(context).colorScheme.onTertiary,
+                            color: isSelected ? ColorTheme.appSecondary : ColorTheme.textSecondary,
                             fontWeight: FontWeight.w500,
                           ),
                         ),

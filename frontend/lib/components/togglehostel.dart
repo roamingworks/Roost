@@ -1,5 +1,7 @@
 
 import 'package:flutter/material.dart';
+import 'package:frontend/constants/colors.dart';
+
 
 class ToggleButton extends StatefulWidget{
   const ToggleButton({super.key});
@@ -28,10 +30,10 @@ class _ToggleButtonState extends State<ToggleButton>{
         padding: const EdgeInsets.symmetric(horizontal: 5),
         decoration: BoxDecoration(
           border: Border.all(
-            color: Theme.of(context).colorScheme.secondary,
+            color: ColorTheme.appTertiary,
             width: 1
           ),
-          color: isOn ? Theme.of(context).colorScheme.secondary : Theme.of(context).colorScheme.primary,
+          color: isOn ? ColorTheme.appTertiary : ColorTheme.appSecondary,
           borderRadius: BorderRadius.circular(30),
         ),
         child: Stack(
@@ -43,7 +45,7 @@ class _ToggleButtonState extends State<ToggleButton>{
               child: Text(
                 isOn ? 'In Hostel' : 'Away',
                 style: TextStyle(
-                  color: isOn ? Theme.of(context).colorScheme.primary : Theme.of(context).colorScheme.secondary,
+                  color: isOn ? ColorTheme.appSecondary : ColorTheme.appTertiary,
                   fontSize: 16,
                   fontWeight: FontWeight.bold,
                 ),
@@ -59,7 +61,7 @@ class _ToggleButtonState extends State<ToggleButton>{
                 width: 30,
                 height: 30,
                 decoration: BoxDecoration(
-                  color: isOn ? Theme.of(context).colorScheme.primary : Theme.of(context).colorScheme.secondary ,
+                  color: isOn ? ColorTheme.appSecondary : ColorTheme.appTertiary ,
                   shape: BoxShape.circle,
                 ),
               ),
