@@ -4,11 +4,10 @@ import 'package:intl/intl.dart';
 
 // Components
 import 'package:frontend/components/togglehostel.dart';
+import 'package:frontend/components/toggleFood.dart';
 
 // Themes
 import 'package:frontend/constants/colors.dart';
-
-
 
 class MealPlannerDashboard extends StatefulWidget {
   MealPlannerDashboard({super.key});
@@ -19,7 +18,7 @@ class MealPlannerDashboard extends StatefulWidget {
 class _MealPlannerDashboardState extends State<MealPlannerDashboard> {
   int selectedDay = 3;
   bool isInHostel = true;
-  
+
   Map<String, bool> mealStatus = {
     'breakfast': false,
     'lunch': false,
@@ -28,7 +27,15 @@ class _MealPlannerDashboardState extends State<MealPlannerDashboard> {
   };
 
   final List<String> days = ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'];
-  final List<String> fullDays = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'];
+  final List<String> fullDays = [
+    'Monday',
+    'Tuesday',
+    'Wednesday',
+    'Thursday',
+    'Friday',
+    'Saturday',
+    'Sunday',
+  ];
 
   final formattedDate = DateFormat('d MMMM y').format(DateTime.now());
 
@@ -46,33 +53,53 @@ class _MealPlannerDashboardState extends State<MealPlannerDashboard> {
                   Expanded(
                     child: ElevatedButton.icon(
                       onPressed: () {},
-                      icon: Icon(Icons.restaurant, color: ColorTheme.appSecondary),
-                      label: Text('Plan Meal', style: TextStyle(fontSize: 20,color: ColorTheme.appSecondary, fontWeight: FontWeight.bold)),
+                      icon: Icon(
+                        Icons.restaurant,
+                        color: ColorTheme.appSecondary,
+                      ),
+                      label: Text(
+                        'Plan Meal',
+                        style: TextStyle(
+                          fontSize: 20,
+                          color: ColorTheme.appSecondary,
+                          fontWeight: FontWeight.bold,
+                        ),
+                      ),
                       style: ElevatedButton.styleFrom(
                         backgroundColor: ColorTheme.appTertiary,
                         padding: EdgeInsets.symmetric(vertical: 12),
-                        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(8)),
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(8),
+                        ),
                       ),
                     ),
                   ),
                   SizedBox(width: 12),
                   Expanded(
                     child: OutlinedButton.icon(
-                      onPressed: () {
-                      },
-                      icon: Icon(Icons.bar_chart, color: ColorTheme.textSecondary),
-                      label: Text('View Stats', style: TextStyle(fontSize: 20,color: ColorTheme.textSecondary)),
+                      onPressed: () {},
+                      icon: Icon(
+                        Icons.bar_chart,
+                        color: ColorTheme.textSecondary,
+                      ),
+                      label: Text(
+                        'View Stats',
+                        style: TextStyle(
+                          fontSize: 20,
+                          color: ColorTheme.textSecondary,
+                        ),
+                      ),
                       style: OutlinedButton.styleFrom(
                         padding: EdgeInsets.symmetric(vertical: 12),
-                        side: BorderSide.none
+                        side: BorderSide.none,
                       ),
                     ),
                   ),
                 ],
               ),
-              
-              SizedBox(height: 24),
-              
+
+              SizedBox(height: 28),
+
               Row(
                 children: List.generate(7, (index) {
                   bool isSelected = index == selectedDay;
@@ -87,9 +114,15 @@ class _MealPlannerDashboardState extends State<MealPlannerDashboard> {
                         margin: EdgeInsets.symmetric(horizontal: 2),
                         padding: EdgeInsets.symmetric(vertical: 12),
                         decoration: BoxDecoration(
-                          color: isSelected ? ColorTheme.appTertiary : Colors.transparent,
+                          color:
+                              isSelected
+                                  ? ColorTheme.appTertiary
+                                  : Colors.transparent,
                           border: Border.all(
-                            color: isSelected ? ColorTheme.appTertiary : ColorTheme.textSecondary,
+                            color:
+                                isSelected
+                                    ? ColorTheme.appTertiary
+                                    : ColorTheme.textSecondary,
                             width: 2,
                           ),
                           borderRadius: BorderRadius.circular(25),
@@ -98,7 +131,10 @@ class _MealPlannerDashboardState extends State<MealPlannerDashboard> {
                           days[index],
                           textAlign: TextAlign.center,
                           style: TextStyle(
-                            color: isSelected ? ColorTheme.appSecondary : ColorTheme.textSecondary,
+                            color:
+                                isSelected
+                                    ? ColorTheme.appSecondary
+                                    : ColorTheme.textSecondary,
                             fontWeight: FontWeight.w500,
                           ),
                         ),
@@ -107,9 +143,9 @@ class _MealPlannerDashboardState extends State<MealPlannerDashboard> {
                   );
                 }),
               ),
-              
+
               SizedBox(height: 24),
-              
+
               Center(
                 child: Column(
                   children: [
@@ -117,22 +153,62 @@ class _MealPlannerDashboardState extends State<MealPlannerDashboard> {
                       'Today, $formattedDate',
                       textAlign: TextAlign.values[5],
                       style: TextStyle(
-                      fontSize: 20,
-                      fontWeight: FontWeight.bold,
-                      color: Colors.black87,
+                        fontSize: 20,
+                        fontWeight: FontWeight.bold,
+                        color: Colors.black87,
                       ),
-                    )
+                    ),
                   ],
                 ),
               ),
-              
+
               SizedBox(height: 12),
-              
-              Center(child: Column(
-                children: [
-                  ToggleButton()
-                ],
-              ),)
+
+              Center(child: Column(children: [ToggleHostelButton()])),
+
+              Expanded(
+                child: Column(
+                  children: [
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [Text('Breakfast'), ToggleFoodButton()],
+                    ),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [Text('Lunch'), ToggleFoodButton()],
+                    ),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [Text('Tea/Snacks'), ToggleFoodButton()],
+                    ),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [Text('Dinner'), ToggleFoodButton()],
+                    ),
+                  ],
+                ),
+              ),
+              Center(
+                child: Text(
+                  "Today's Menu",
+                  style: TextStyle(
+                    fontSize: 20,
+                    fontWeight: FontWeight.bold,
+                    color: Colors.black87,
+                  ),
+                ),
+              ),
+              Expanded(
+                child: GridView.count(
+                  crossAxisCount: 2,
+                  children: [
+                    Center(child: Text('Breakfast')),
+                    Center(child: Text('Lunch')),
+                    Center(child: Text('Tea/')),
+                    Center(child: Text('Breakfast')),
+                  ],
+                ),
+              ),
             ],
           ),
         ),

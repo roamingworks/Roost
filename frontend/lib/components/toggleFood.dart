@@ -1,14 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:frontend/constants/colors.dart';
 
-class ToggleHostelButton extends StatefulWidget {
-  const ToggleHostelButton({super.key});
+class ToggleFoodButton extends StatefulWidget {
+  const ToggleFoodButton({super.key});
 
   @override
-  State<ToggleHostelButton> createState() => _ToggleHostelButtonState();
+  State<ToggleFoodButton> createState() => _ToggleFoodButtonState();
 }
 
-class _ToggleHostelButtonState extends State<ToggleHostelButton> {
+class _ToggleFoodButtonState extends State<ToggleFoodButton> {
   bool isOn = false;
 
   void toggleSwitch() {
@@ -23,7 +23,7 @@ class _ToggleHostelButtonState extends State<ToggleHostelButton> {
       onTap: toggleSwitch,
       child: AnimatedContainer(
         duration: const Duration(milliseconds: 300),
-        width: 150,
+        width: 120,
         height: 40,
         padding: const EdgeInsets.symmetric(horizontal: 5),
         decoration: BoxDecoration(
@@ -34,12 +34,11 @@ class _ToggleHostelButtonState extends State<ToggleHostelButton> {
         child: Stack(
           children: [
             Padding(
-              padding:
-                  isOn ? EdgeInsets.only(left: 45) : EdgeInsets.only(right: 14),
+              padding: EdgeInsets.only(left: 30, right: 30),
               child: Align(
                 alignment: isOn ? Alignment.centerLeft : Alignment.center,
                 child: Text(
-                  isOn ? 'In Hostel' : 'Away',
+                  isOn ? 'On' : 'Skip',
                   style: TextStyle(
                     color:
                         isOn ? ColorTheme.appSecondary : ColorTheme.appTertiary,
@@ -53,7 +52,7 @@ class _ToggleHostelButtonState extends State<ToggleHostelButton> {
             AnimatedAlign(
               duration: const Duration(milliseconds: 300),
               curve: Curves.easeInOut,
-              alignment: isOn ? Alignment.centerLeft : Alignment.centerRight,
+              alignment: isOn ? Alignment.centerRight : Alignment.centerLeft,
               child: Container(
                 width: 30,
                 height: 30,
