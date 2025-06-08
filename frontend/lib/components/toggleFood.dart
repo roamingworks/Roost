@@ -2,19 +2,42 @@ import 'package:flutter/material.dart';
 import 'package:frontend/constants/colors.dart';
 
 class ToggleFoodButton extends StatefulWidget {
-  const ToggleFoodButton({super.key});
+  final bool initialValue;
+  final Function(bool)? onChanged;
+
+  ToggleFoodButton({super.key, this.initialValue = false, this.onChanged});
 
   @override
   State<ToggleFoodButton> createState() => _ToggleFoodButtonState();
 }
 
 class _ToggleFoodButtonState extends State<ToggleFoodButton> {
-  bool isOn = false;
+  late bool isOn;
+
+  @override
+  void initState() {
+    super.initState();
+    isOn = widget.initialValue;
+  }
+
+  @override
+  void didUpdateWidget(ToggleFoodButton oldWidget) {
+    super.didUpdateWidget(oldWidget);
+    // Update internal state if parent changes the initial value
+    if (widget.initialValue != oldWidget.initialValue) {
+      isOn = widget.initialValue;
+    }
+  }
 
   void toggleSwitch() {
     setState(() {
       isOn = !isOn;
     });
+
+    // Call the callback function if provided
+    if (widget.onChanged != null) {
+      widget.onChanged!(isOn);
+    }
   }
 
   @override

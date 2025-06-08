@@ -1,6 +1,7 @@
 // Packages
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
+// import 'package:flutter_svg/flutter_svg.dart';
 
 // Components
 import 'package:frontend/components/togglehostel.dart';
@@ -20,7 +21,7 @@ class _MealPlannerDashboardState extends State<MealPlannerDashboard> {
   bool isInHostel = true;
 
   Map<String, bool> mealStatus = {
-    'breakfast': false,
+    'breakfast': true,
     'lunch': false,
     'teaSnacks': false,
     'dinner': true,
@@ -161,31 +162,53 @@ class _MealPlannerDashboardState extends State<MealPlannerDashboard> {
                   ],
                 ),
               ),
-
-              SizedBox(height: 12),
-
+              SizedBox(height: 14),
               Center(child: Column(children: [ToggleHostelButton()])),
-
+              SizedBox(height: 20),
               Expanded(
-                child: Column(
-                  children: [
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: [Text('Breakfast'), ToggleFoodButton()],
-                    ),
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: [Text('Lunch'), ToggleFoodButton()],
-                    ),
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: [Text('Tea/Snacks'), ToggleFoodButton()],
-                    ),
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: [Text('Dinner'), ToggleFoodButton()],
-                    ),
-                  ],
+                child: Padding(
+                  padding: EdgeInsets.only(left: 50, right: 50),
+                  child: Column(
+                    spacing: 12,
+                    children: [
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          // SvgPicture.asset(
+                          //   'assets/images/breakfast-icon.svg',
+                          //   semanticsLabel: 'breakfast image',
+                          // ),
+                          Text('Breakfast'),
+                          ToggleFoodButton(
+                            initialValue: mealStatus['breakfast']!,
+                          ),
+                        ],
+                      ),
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          Text('Lunch'),
+                          ToggleFoodButton(initialValue: mealStatus['lunch']!),
+                        ],
+                      ),
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          Text('Tea/Snacks'),
+                          ToggleFoodButton(
+                            initialValue: mealStatus['teaSnacks']!,
+                          ),
+                        ],
+                      ),
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          Text('Dinner'),
+                          ToggleFoodButton(initialValue: mealStatus['dinner']!),
+                        ],
+                      ),
+                    ],
+                  ),
                 ),
               ),
               Center(
