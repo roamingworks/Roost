@@ -1,8 +1,14 @@
+// Package
 import 'package:flutter/material.dart';
-import 'package:frontend/screens/view_state.dart';
-import 'screens/dashboard.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:frontend/constants/colors.dart';
+
+// Screens
+import 'package:frontend/Screens/view_state.dart';
+import 'Screens/dashboard.dart';
+import 'Screens/sign.dart';
+
+// Colors
+import 'package:frontend/Constants/colors.dart';
 
 
 void main(){
@@ -40,7 +46,8 @@ class _HomePage extends State<HomePage> {
   final List<Widget> _pages = [
     Center(child: Text('Home Page')),
     MealPlannerDashboard(),
-    Container(child: Text('Home'))
+    SignPage(),
+    
   ];
 
   void _onTapped(int index){
@@ -71,7 +78,7 @@ class _HomePage extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: _currentIndex < _pages.length ? _pages[_currentIndex] : _pages[0],
+      body: _pages[_currentIndex],
       bottomNavigationBar: Padding(
 
         padding: EdgeInsets.all(15),

@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:frontend/constants/colors.dart';
+import 'package:frontend/Constants/colors.dart';
 
 class ToggleHostelButton extends StatefulWidget {
   const ToggleHostelButton({super.key});

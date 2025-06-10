@@ -4,11 +4,11 @@ import 'package:intl/intl.dart';
 // import 'package:flutter_svg/flutter_svg.dart';
 
 // Components
-import 'package:frontend/components/togglehostel.dart';
-import 'package:frontend/components/toggleFood.dart';
+import 'package:frontend/Components/togglehostel.dart';
+import 'package:frontend/Components/toggleFood.dart';
 
 // Themes
-import 'package:frontend/constants/colors.dart';
+import 'package:frontend/Constants/colors.dart';
 
 class MealPlannerDashboard extends StatefulWidget {
   MealPlannerDashboard({super.key});

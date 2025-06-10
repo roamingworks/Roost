@@ -3,7 +3,7 @@
 import 'package:flutter/material.dart';
 
 // Color
-import 'package:frontend/constants/colors.dart';
+import 'package:frontend/Constants/colors.dart';
 
 class ViewState extends StatefulWidget {
   @override
