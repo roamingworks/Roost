@@ -28,7 +28,7 @@ class _ToggleHostelButtonState extends State<ToggleHostelButton> {
         padding: const EdgeInsets.symmetric(horizontal: 5),
         decoration: BoxDecoration(
           border: Border.all(color: ColorTheme.appTertiary, width: 1),
-          color: isOn ? ColorTheme.appTertiary : ColorTheme.appSecondary,
+          color: isOn ? ColorTheme.appSecondary : ColorTheme.appTertiary,
           borderRadius: BorderRadius.circular(30),
         ),
         child: Stack(
@@ -37,12 +37,12 @@ class _ToggleHostelButtonState extends State<ToggleHostelButton> {
               padding:
                   isOn ? EdgeInsets.only(left: 45) : EdgeInsets.only(right: 14),
               child: Align(
-                alignment: isOn ? Alignment.centerLeft : Alignment.center,
+                alignment: isOn ? Alignment(-0.5, 0) : Alignment.center,
                 child: Text(
-                  isOn ? 'In Hostel' : 'Away',
+                  isOn ? 'Away' : 'In Hostel',
                   style: TextStyle(
                     color:
-                        isOn ? ColorTheme.appSecondary : ColorTheme.appTertiary,
+                        isOn ? ColorTheme.appTertiary: ColorTheme.appSecondary,
                     fontSize: 16,
                     fontWeight: FontWeight.bold,
                   ),
@@ -59,7 +59,7 @@ class _ToggleHostelButtonState extends State<ToggleHostelButton> {
                 height: 30,
                 decoration: BoxDecoration(
                   color:
-                      isOn ? ColorTheme.appSecondary : ColorTheme.appTertiary,
+                      isOn ? ColorTheme.appTertiary : ColorTheme.appSecondary,
                   shape: BoxShape.circle,
                 ),
               ),

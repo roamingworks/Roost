@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:frontend/screens/view_state.dart';
 import 'screens/dashboard.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:frontend/constants/colors.dart';
+
 
 void main(){
   runApp(MyApp());
@@ -19,6 +21,9 @@ class MyApp extends StatelessWidget{
         scaffoldBackgroundColor: Color(0xFFFFFFFF),
       ),
       home: HomePage(),
+      routes: {
+        "/view" : (context) => ViewState() 
+      },
     );
   }
 }
@@ -72,7 +77,7 @@ class _HomePage extends State<HomePage> {
         padding: EdgeInsets.all(15),
         child: ClipRRect(
           borderRadius: BorderRadius.all(Radius.circular(20)),
-          child: BottomNavigationBar(
+          child: BottomNavigationBar(  // Bottom navigator
             showSelectedLabels: false,
             showUnselectedLabels: false,
             currentIndex: _currentIndex,
