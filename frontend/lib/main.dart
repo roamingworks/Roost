@@ -41,12 +41,7 @@ class _HomePage extends State<HomePage> {
   final List<Widget> _pages = [
     Center(child: Text('Home Page')),
     MealPlannerDashboard(),
-<<<<<<< HEAD
     SignPage(),
-    
-=======
-    Container(child: Text('Home')),
->>>>>>> ff8dc36d1f216ff6ff5caf9fb91427f976cc22c3
   ];
 
   void _onTapped(int index) {

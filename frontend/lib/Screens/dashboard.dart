@@ -1,14 +1,18 @@
 // Packages
 import 'package:flutter/material.dart';
-import 'package:intl/intl.dart';
+
 // import 'package:flutter_svg/flutter_svg.dart';
 
 // Components
 import 'package:frontend/Components/togglehostel.dart';
-import 'package:frontend/Components/toggleFood.dart';
+
 
 // Themes
 import 'package:frontend/Constants/colors.dart';
+
+//Widgets
+import 'package:frontend/Screens/Widgets/Dashboard/dashboard_widget.dart';
+
 
 class MealPlannerDashboard extends StatefulWidget {
   MealPlannerDashboard({super.key});
@@ -19,13 +23,6 @@ class MealPlannerDashboard extends StatefulWidget {
 class _MealPlannerDashboardState extends State<MealPlannerDashboard> {
   int selectedDay = 3;
   bool isInHostel = true;
-
-  Map<String, bool> mealStatus = {
-    'breakfast': true,
-    'lunch': false,
-    'teaSnacks': false,
-    'dinner': true,
-  };
 
   final List<String> days = ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'];
   final List<String> fullDays = [
@@ -38,7 +35,6 @@ class _MealPlannerDashboardState extends State<MealPlannerDashboard> {
     'Sunday',
   ];
 
-  final formattedDate = DateFormat('d MMMM y').format(DateTime.now());
 
   @override
   Widget build(BuildContext context) {
@@ -49,58 +45,8 @@ class _MealPlannerDashboardState extends State<MealPlannerDashboard> {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Row(
-                children: [
-                  Expanded(
-                    child: ElevatedButton.icon(
-                      onPressed: () {},
-                      icon: Icon(
-                        Icons.restaurant,
-                        color: ColorTheme.appSecondary,
-                      ),
-                      label: Text(
-                        'Plan Meal',
-                        style: TextStyle(
-                          fontSize: 20,
-                          color: ColorTheme.appSecondary,
-                          fontWeight: FontWeight.bold,
-                        ),
-                      ),
-                      style: ElevatedButton.styleFrom(
-                        backgroundColor: ColorTheme.appTertiary,
-                        padding: EdgeInsets.symmetric(vertical: 12),
-                        shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(8),
-                        ),
-                      ),
-                    ),
-                  ),
-                  SizedBox(width: 12),
-                  Expanded(
-                    child: OutlinedButton.icon(
-                      onPressed: () {
-                        Navigator.pushNamed(context, '/stats');
-                      },
-                      icon: Icon(
-                        Icons.bar_chart,
-                        color: ColorTheme.textSecondary,
-                      ),
-                      label: Text(
-                        'View Stats',
-                        style: TextStyle(
-                          fontSize: 20,
-                          color: ColorTheme.textSecondary,
-                        ),
-                      ),
-                      style: OutlinedButton.styleFrom(
-                        padding: EdgeInsets.symmetric(vertical: 12),
-                        side: BorderSide.none,
-                      ),
-                    ),
-                  ),
-                ],
-              ),
-
+              // Top Bar
+              DashboardWidgets.topBar(context),
               SizedBox(height: 28),
 
               Row(
@@ -149,80 +95,18 @@ class _MealPlannerDashboardState extends State<MealPlannerDashboard> {
 
               SizedBox(height: 24),
 
-              Center(
-                child: Column(
-                  children: [
-                    Text(
-                      'Today, $formattedDate',
-                      textAlign: TextAlign.values[5],
-                      style: TextStyle(
-                        fontSize: 20,
-                        fontWeight: FontWeight.bold,
-                        color: Colors.black87,
-                      ),
-                    ),
-                  ],
-                ),
-              ),
+              // Date Widget
+              DashboardWidgets.dateWidget(context),
               SizedBox(height: 14),
+
+              // Hostel Toggle Button
               Center(child: Column(children: [ToggleHostelButton()])),
               SizedBox(height: 20),
-              Center(
-                child: Column(
-                  spacing: 12,
-                  children: [
-                    Center(
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        spacing: 30,
-                        children: [
-                          // SvgPicture.asset(
-                          //   'assets/images/breakfast-icon.svg',
-                          //   semanticsLabel: 'breakfast image',
-                          // ),
-                          Text('Breakfast'),
-                          ToggleFoodButton(
-                            initialValue: mealStatus['breakfast']!,
-                          ),
-                        ],
-                      ),
-                    ),
-                    Center(
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        spacing: 45,
-                        children: [
-                          Text('   Lunch'),
-                          ToggleFoodButton(initialValue: mealStatus['lunch']!),
-                        ],
-                      ),
-                    ),
-                    Center(
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        spacing: 25,
-                        children: [
-                          Text('Tea/Snacks'),
-                          ToggleFoodButton(
-                            initialValue: mealStatus['teaSnacks']!,
-                          ),
-                        ],
-                      ),
-                    ),
-                    Center(
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        spacing: 45,
-                        children: [
-                          Text('     Dinner'),
-                          ToggleFoodButton(initialValue: mealStatus['dinner']!),
-                        ],
-                      ),
-                    ),
-                  ],
-                ),
-              ),
+
+              // Meal Selection
+              DashboardWidgets.mealSelection(context),
               SizedBox(height: 20),
+
               Center(
                 child: Text(
                   "Today's Menu",
@@ -239,7 +123,7 @@ class _MealPlannerDashboardState extends State<MealPlannerDashboard> {
                   children: [
                     Center(child: Text('Breakfast')),
                     Center(child: Text('Lunch')),
-                    Center(child: Text('Tea/')),
+                    Center(child: Text('Tea/Snack')),
                     Center(child: Text('Breakfast')),
                   ],
                 ),
