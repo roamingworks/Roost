@@ -1,4 +1,3 @@
-
 // UI Material
 import 'package:flutter/material.dart';
 
@@ -10,8 +9,7 @@ class ViewState extends StatefulWidget {
   State<ViewState> createState() => _ViewSate();
 }
 
-class _ViewSate extends State<ViewState>{
-
+class _ViewSate extends State<ViewState> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -44,7 +42,7 @@ class _ViewSate extends State<ViewState>{
                         side: BorderSide.none,
                       ),
                     ),
-                  ), 
+                  ),
                   SizedBox(width: 12),
                   Expanded(
                     child: ElevatedButton.icon(
@@ -54,7 +52,7 @@ class _ViewSate extends State<ViewState>{
                         color: ColorTheme.appSecondary,
                       ),
                       label: Text(
-                        'View Sate',
+                        'View Stats',
                         style: TextStyle(
                           fontSize: 20,
                           color: ColorTheme.appSecondary,
@@ -71,14 +69,48 @@ class _ViewSate extends State<ViewState>{
                     ),
                   ),
                 ],
-              )
-            ]
+              ),
+
+              Row(children: [Text("Meal Summary")]),
+
+              Column(
+                children: [
+                  Row(
+                    children: [
+                      Text("Breakfast"),
+                      Text("Progress Bar Here"),
+                      Text("31/31"),
+                    ],
+                  ),
+                  Row(
+                    children: [
+                      Text("Lunch"),
+                      Text("Progress Bar Here"),
+                      Text("31/31"),
+                    ],
+                  ),
+                  Row(
+                    children: [
+                      Text("Tea/Snacks"),
+                      Text("Progress Bar Here"),
+                      Text("31/31"),
+                    ],
+                  ),
+                  Row(
+                    children: [
+                      Text("Dinner"),
+                      Text("Progress Bar Here"),
+                      Text("31/31"),
+                    ],
+                  ),
+                ],
+              ),
+
+              Text("Calender Wise Summary Here"),
+            ],
           ),
-        )
-      ) 
+        ),
+      ),
     );
   }
 }
-
-
-

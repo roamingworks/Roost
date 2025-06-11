@@ -79,7 +79,7 @@ class _MealPlannerDashboardState extends State<MealPlannerDashboard> {
                   Expanded(
                     child: OutlinedButton.icon(
                       onPressed: () {
-                        Navigator.pushNamed(context, '/view');
+                        Navigator.pushNamed(context, '/stats');
                       },
                       icon: Icon(
                         Icons.bar_chart,
@@ -168,62 +168,61 @@ class _MealPlannerDashboardState extends State<MealPlannerDashboard> {
               Center(child: Column(children: [ToggleHostelButton()])),
               SizedBox(height: 20),
               Center(
-                child:Column(
-
-                spacing: 12,
-                children: [
-                  Center(
-                    child:Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    spacing: 30,
-                    children: [
-                        // SvgPicture.asset(
-                        //   'assets/images/breakfast-icon.svg',
-                        //   semanticsLabel: 'breakfast image',
-                        // ),
-                        Text('Breakfast'),
-                        ToggleFoodButton(
-                          initialValue: mealStatus['breakfast']!,
-                        ),
-                      ],
+                child: Column(
+                  spacing: 12,
+                  children: [
+                    Center(
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        spacing: 30,
+                        children: [
+                          // SvgPicture.asset(
+                          //   'assets/images/breakfast-icon.svg',
+                          //   semanticsLabel: 'breakfast image',
+                          // ),
+                          Text('Breakfast'),
+                          ToggleFoodButton(
+                            initialValue: mealStatus['breakfast']!,
+                          ),
+                        ],
+                      ),
                     ),
-                  ),
-                  Center(
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      spacing: 45,
-                      children: [
-                        Text('   Lunch'),
-                        ToggleFoodButton(initialValue: mealStatus['lunch']!),
-                      ],
-                    ) ,
-                  ),
-                  Center(
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      spacing: 25,
-                      children: [
-                        Text('Tea/Snacks'),
-                        ToggleFoodButton(
-                          initialValue: mealStatus['teaSnacks']!,
-                        ),
-                      ],
+                    Center(
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        spacing: 45,
+                        children: [
+                          Text('   Lunch'),
+                          ToggleFoodButton(initialValue: mealStatus['lunch']!),
+                        ],
+                      ),
                     ),
-                  ),
-                  Center(
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      spacing: 45,
-                      children: [
-                        Text('     Dinner'),
-                        ToggleFoodButton(initialValue: mealStatus['dinner']!),
-                      ],
-                    )
-                  ),
+                    Center(
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        spacing: 25,
+                        children: [
+                          Text('Tea/Snacks'),
+                          ToggleFoodButton(
+                            initialValue: mealStatus['teaSnacks']!,
+                          ),
+                        ],
+                      ),
+                    ),
+                    Center(
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        spacing: 45,
+                        children: [
+                          Text('     Dinner'),
+                          ToggleFoodButton(initialValue: mealStatus['dinner']!),
+                        ],
+                      ),
+                    ),
                   ],
+                ),
               ),
-              ),
-              SizedBox(height: 20,),
+              SizedBox(height: 20),
               Center(
                 child: Text(
                   "Today's Menu",
