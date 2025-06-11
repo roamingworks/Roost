@@ -14,6 +14,9 @@ class SignPage extends StatefulWidget {
 
 class _SignPage extends State<SignPage> {
   File? _imageFile;
+  final TextEditingController _controller = TextEditingController();
+  int? number;
+  
 
   Future<void> _pickImage() async{
     final pickedPhoto = await ImagePicker().pickImage(source: ImageSource.gallery);
@@ -32,8 +35,9 @@ class _SignPage extends State<SignPage> {
   Widget build(BuildContext context){
     return Scaffold(
       body: SafeArea(
-        child: Padding(
-          padding: EdgeInsetsGeometry.all(20),
+        child: SingleChildScrollView(
+          child: Padding(
+          padding: EdgeInsets.all(20),
           child: Column(
             children: [
               Row(
@@ -114,6 +118,7 @@ class _SignPage extends State<SignPage> {
               SizedBox(height: 30,),
               Center(
                 child:Column(
+                  crossAxisAlignment: CrossAxisAlignment.center,
                   children: [
                     Row(
                       mainAxisAlignment: MainAxisAlignment.center,
@@ -122,15 +127,53 @@ class _SignPage extends State<SignPage> {
                         Icon(Icons.star,color: ColorTheme.appTertiary,size: 6,)
                       ],
                     ),
-                    TextFormField(
-                      
+                    SizedBox(
+                      height: 40,
+                      width: 160,
+                      child: TextFormField(
+                        textAlignVertical: TextAlignVertical(y: -1),
+                        controller: _controller,
+                        onSaved: (newValue) => number,
+                        decoration: InputDecoration(
+                          border: OutlineInputBorder(
+                            borderSide: BorderSide(width: 1,color: ColorTheme.textSecondary),
+                            borderRadius: BorderRadius.circular(13)
+                          )
+                        ),
+                        keyboardType: TextInputType.number,
+                      ),
+                    ),
+                    SizedBox(height: 40,),
+
+                    SizedBox(
+                      width: 100,
+                      height: 40,
+                      child: TextButton(
+                        style: TextButton.styleFrom(
+                          
+                          shape: RoundedRectangleBorder(
+                            side: BorderSide(width: 1,color: ColorTheme.textSecondary),
+                            borderRadius: BorderRadius.circular(13)
+                          )
+                        ),
+                        onPressed: (){}, 
+                        child: Row(
+                          spacing: 5,
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            Text("Sign Up",style: TextStyle(color: ColorTheme.textSecondary),),
+                            Icon(Icons.chevron_right_outlined,color: Colors.black,size: 25,)
+                          ]
+                        )
+                      ),
                     )
                   ],
                 )
               )
             ],
           )
-        ), 
+        ),
+        )  
       ), 
     );
   }
