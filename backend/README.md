@@ -4,16 +4,20 @@
 1. [Database Models](#database-models)
    - [User](#user-model)
    - [Meal](#meal-model)
-   - [Complaint](#complaint-model)
-   - [Payment](#payment-model)
+   - [Complaint](#complaint-model) - Placeholder
+   - [Payment](#payment-model) - Placeholder
 2. [API Routes](#api-routes)
    - [Authentication](#authentication-routes)
    - [Meal Management](#meal-management-routes)
-   - [Complaint Management](#complaint-management-routes)
-   - [Payment Management](#payment-management-routes)
-   - [Admin Management](#admin-management-routes)
+   - [Complaint Management](#complaint-management-routes) - Placeholder
+   - [Payment Management](#payment-management-routes) - Placeholder
+   - [Admin Management](#admin-management-routes) - Placeholder
 
 ---
+
+<details>
+    <summary>Database Structure</summary>
+
 
 ## Database Models
 
@@ -100,6 +104,8 @@
 | `createdAt` | Date | Yes | Timestamp of creation |
 
 ---
+
+</details>
 
 ## API Routes
 
