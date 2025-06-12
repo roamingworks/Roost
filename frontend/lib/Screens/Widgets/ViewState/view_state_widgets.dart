@@ -10,7 +10,7 @@ class ViewStateWidgets {
         Expanded(
           child: OutlinedButton.icon(
           onPressed: () {
-            Navigator.pushNamed(context, '/');
+            Navigator.pushNamed(context, '/dashboard');
           },
           icon: Icon(
             Icons.restaurant,

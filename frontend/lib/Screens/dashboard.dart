@@ -5,7 +5,7 @@ import 'package:flutter/material.dart';
 
 // Components
 import 'package:frontend/Components/togglehostel.dart';
-
+import 'package:frontend/Components/bottom_nav.dart';
 
 // Themes
 import 'package:frontend/Constants/colors.dart';
@@ -112,6 +112,12 @@ class _MealPlannerDashboardState extends State<MealPlannerDashboard> {
               
               // Today's Menu
               DashboardWidgets.todayMenu(context),
+
+              // Bottom bar
+              Align(
+                alignment: Alignment.bottomCenter,
+                child: Nav(context,1),
+              )
             ],
           ),
         ),

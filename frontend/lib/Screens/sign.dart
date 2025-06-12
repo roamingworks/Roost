@@ -9,6 +9,9 @@ import 'package:frontend/Screens/Widgets/SignPage/signup_widget.dart';
 // Colors
 import 'package:frontend/Constants/colors.dart';
 
+// Components
+import 'package:frontend/Components/bottom_nav.dart';
+
 class SignPage extends StatefulWidget {
   @override
   State<SignPage> createState() => _SignPage();
@@ -134,6 +137,13 @@ class _SignPage extends State<SignPage> {
                           ]
                         )
                       ),
+                    ),
+
+                    SizedBox(height: 90,),
+                    // Bottom bar
+                    Align(
+                      alignment: Alignment.bottomCenter,
+                      child: Nav(context,2),
                     )
                   ],
                 )

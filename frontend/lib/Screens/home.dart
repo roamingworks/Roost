@@ -27,6 +27,7 @@ class HomeState extends State<Home> {
 
                 SizedBox(height: 50,),
                 HomeWidgets.attendShowButton(context),
+
               ],
             ),
           )

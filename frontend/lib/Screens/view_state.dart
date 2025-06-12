@@ -4,6 +4,9 @@ import 'package:flutter/material.dart';
 // Widgets
 import 'package:frontend/Screens/Widgets/ViewState/view_state_widgets.dart';
 
+// COmponents
+import 'package:frontend/Components/bottom_nav.dart';
+
 class ViewState extends StatefulWidget {
   @override
   State<ViewState> createState() => _ViewSate();
@@ -59,6 +62,12 @@ class _ViewSate extends State<ViewState> {
               ),
 
               Text("Calender Wise Summary Here"),
+
+              // Bottom bar
+              Align(
+                alignment: Alignment.bottomCenter,
+                child: Nav(context,1),
+              )
             ],
           ),
         ),
