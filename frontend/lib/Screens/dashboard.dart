@@ -107,27 +107,11 @@ class _MealPlannerDashboardState extends State<MealPlannerDashboard> {
               DashboardWidgets.mealSelection(context),
               SizedBox(height: 20),
 
-              Center(
-                child: Text(
-                  "Today's Menu",
-                  style: TextStyle(
-                    fontSize: 20,
-                    fontWeight: FontWeight.bold,
-                    color: Colors.black87,
-                  ),
-                ),
-              ),
-              Expanded(
-                child: GridView.count(
-                  crossAxisCount: 2,
-                  children: [
-                    Center(child: Text('Breakfast')),
-                    Center(child: Text('Lunch')),
-                    Center(child: Text('Tea/Snack')),
-                    Center(child: Text('Breakfast')),
-                  ],
-                ),
-              ),
+              // Today menu Title
+              DashboardWidgets.todayMenuTitle(context),
+              
+              // Today's Menu
+              DashboardWidgets.todayMenu(context),
             ],
           ),
         ),

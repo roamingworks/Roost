@@ -152,6 +152,32 @@ class DashboardWidgets {
     );
   }
 
+  static Center todayMenuTitle(BuildContext context){
+    return Center(
+      child: Text(
+        "Today's Menu",
+        style: TextStyle(
+            fontSize: 20,
+            fontWeight: FontWeight.bold,
+            color: Colors.black87,
+        ),
+      ),
+    );
+  }
 
+  static Expanded todayMenu(BuildContext context){
+    return Expanded(
+      child: GridView.count(
+        crossAxisCount: 2,
+        children: [
+          Center(child: Text('Breakfast')),
+          Center(child: Text('Lunch')),
+          Center(child: Text('Tea/Snack')),
+          Center(child: Text('Breakfast')),
+        ],
+      ),
+    );
+  }
 
+  
 }

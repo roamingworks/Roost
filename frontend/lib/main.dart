@@ -6,6 +6,7 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'package:frontend/Screens/view_state.dart';
 import 'Screens/dashboard.dart';
 import 'Screens/sign.dart';
+import 'Screens/home.dart';
 
 // Colors
 import 'package:frontend/Constants/colors.dart';
@@ -24,22 +25,22 @@ class MyApp extends StatelessWidget {
         fontFamily: 'BriColage',
         scaffoldBackgroundColor: Color(0xFFFFFFFF),
       ),
-      home: HomePage(),
+      home: RootPage(),
       routes: {"/stats": (context) => ViewState()},
     );
   }
 }
 
-class HomePage extends StatefulWidget {
+class RootPage extends StatefulWidget {
   @override
-  State<HomePage> createState() => _HomePage();
+  State<RootPage> createState() => _RootPage();
 }
 
-class _HomePage extends State<HomePage> {
-  int _currentIndex = 1;
+class _RootPage extends State<RootPage> {
+  int _currentIndex = 0;
 
   final List<Widget> _pages = [
-    Center(child: Text('Home Page')),
+    Home(),
     MealPlannerDashboard(),
     SignPage(),
   ];
