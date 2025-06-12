@@ -19,7 +19,7 @@
 
 Use yaak - The API client for modern developers
 
-![Yaak Interface](../docs/yaak-interface.svg)
+![Yaak Interface](../docs/yaak-interface.png)
 
 ### Steps to setup Yaak
 
