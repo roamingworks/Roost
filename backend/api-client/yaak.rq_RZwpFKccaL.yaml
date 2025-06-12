@@ -1,8 +1,8 @@
 type: http_request
 model: http_request
-id: rq_eRMZPweQAu
-createdAt: 2025-03-16T16:45:49.938592
-updatedAt: 2025-06-12T14:53:04.120747
+id: rq_RZwpFKccaL
+createdAt: 2025-06-12T14:44:50.615239
+updatedAt: 2025-06-12T14:53:04.116636
 workspaceId: wk_BiNVrVDc6b
 folderId: fl_RxtChK4dvJ
 authentication: {}
@@ -25,7 +25,7 @@ headers:
   value: ''
   id: JHtVEJ8em4
 method: GET
-name: Get Today’s Meals
-sortPriority: 2000.0
-url: ${[ BASE_URL ]}/api/meals/today
+name: Get Monthly meal stats
+sortPriority: 0.0
+url: ${[ BASE_URL ]}/api/meals/stats
 urlParameters: []

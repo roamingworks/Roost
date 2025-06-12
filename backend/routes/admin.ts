@@ -1,16 +1,22 @@
-import express from "express";
-import { User } from "../models/User";
-import auth from "../middleware/auth";
+import express, { RequestHandler } from "express";
+import { User } from "../models/user";
+import { auth, AuthenticatedRequest } from "../middleware/auth";
 
 const router = express.Router();
 
+const adminMiddleware: RequestHandler = (
+  req: AuthenticatedRequest,
+  res,
+  next,
+): void => {
+  if (req.userRole !== "admin") {
+    res.status(403).json({ error: "Unauthorized" });
+  }
+  next();
+};
 // Admin middleware
 router.use(auth);
-router.use((req, res, next) => {
-  if (req.userRole !== "admin")
-    return res.status(403).json({ error: "Unauthorized" });
-  next();
-});
+router.use(adminMiddleware);
 
 // Manage students
 router.get("/students", async (req, res) => {

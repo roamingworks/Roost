@@ -2,9 +2,9 @@ type: http_request
 model: http_request
 id: rq_BaEraqKGbL
 createdAt: 2025-05-04T15:12:14.587615
-updatedAt: 2025-06-12T05:46:12.916537
+updatedAt: 2025-06-12T14:53:12.717470
 workspaceId: wk_BiNVrVDc6b
-folderId: null
+folderId: fl_Qugxgc93td
 authentication: {}
 authenticationType: null
 body:
@@ -27,6 +27,6 @@ headers:
   id: MQxaIvaXx7
 method: POST
 name: Register User (Student/Admin)
-sortPriority: 0.001
+sortPriority: 0.0
 url: ${[ BASE_URL ]}/api/auth/register
 urlParameters: []
