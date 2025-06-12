@@ -4,9 +4,9 @@ import cors from "cors";
 import dotenv from "dotenv";
 import authRoutes from "./routes/auth";
 import mealRoutes from "./routes/meal";
-import complaintRoutes from "./routes/complaint";
-import paymentRoutes from "./routes/payment";
-import adminRoutes from "./routes/admin";
+// import complaintRoutes from "./routes/complaint";
+// import paymentRoutes from "./routes/payment";
+// import adminRoutes from "./routes/admin";
 
 dotenv.config();
 
@@ -26,17 +26,17 @@ mongoose
 // Routes
 app.use("/api/auth", authRoutes);
 app.use("/api/meals", mealRoutes);
-app.use("/api/complaints", complaintRoutes);
-app.use("/api/payments", paymentRoutes);
-app.use("/api/admin", adminRoutes);
+// app.use("/api/complaints", complaintRoutes);
+// app.use("/api/payments", paymentRoutes);
+// app.use("/api/admin", adminRoutes);
 
 // Error handling
 app.use(
   (
     err: any,
-    req: express.Request,
+    _req: express.Request,
     res: express.Response,
-    next: express.NextFunction,
+    _next: express.NextFunction,
   ) => {
     console.error(err.stack);
     res.status(500).json({ error: "Something went wrong!" });

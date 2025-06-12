@@ -1,0 +1,32 @@
+type: http_request
+model: http_request
+id: rq_BaEraqKGbL
+createdAt: 2025-05-04T15:12:14.587615
+updatedAt: 2025-06-12T05:46:12.916537
+workspaceId: wk_BiNVrVDc6b
+folderId: null
+authentication: {}
+authenticationType: null
+body:
+  text: |-
+    {
+      "username":"Mumbo",
+      "password":"dumbo",
+      "role":"admin"
+    }
+bodyType: application/json
+description: ''
+headers:
+- enabled: true
+  name: Content-Type
+  value: application/json
+  id: 8C5ST622wt
+- enabled: true
+  name: ''
+  value: ''
+  id: MQxaIvaXx7
+method: POST
+name: Register User (Student/Admin)
+sortPriority: 0.001
+url: ${[ BASE_URL ]}/api/auth/register
+urlParameters: []

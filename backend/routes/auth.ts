@@ -1,11 +1,11 @@
-import express from "express";
+import express, { Request, Response } from "express";
 import jwt from "jsonwebtoken";
-import { User } from "../models/User";
+import { User } from "../models/user";
 import bcrypt from "bcryptjs";
 
 const router = express.Router();
 
-router.post("/register", async (req, res) => {
+router.post("/register", async (req: Request, res: Response): Promise<void> => {
   try {
     const { username, password, role, studentDetails } = req.body;
     const hashedPassword = await bcrypt.hash(password, 10);
@@ -22,15 +22,20 @@ router.post("/register", async (req, res) => {
   }
 });
 
-router.post("/login", async (req, res) => {
+router.post("/login", async (req: Request, res: Response): Promise<void> => {
   try {
     const { username, password } = req.body;
     const user = await User.findOne({ username });
-    if (!user) return res.status(401).json({ error: "Authentication failed" });
+    if (!user) {
+      res.status(401).json({ error: "Authentication failed" });
+      return;
+    }
 
     const isMatch = await bcrypt.compare(password, user.password);
-    if (!isMatch)
-      return res.status(401).json({ error: "Authentication failed" });
+    if (!isMatch) {
+      res.status(401).json({ error: "Authentication failed" });
+      return;
+    }
 
     const token = jwt.sign(
       { userId: user._id, role: user.role },
