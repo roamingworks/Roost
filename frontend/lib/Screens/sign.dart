@@ -1,11 +1,16 @@
 // Package
 import 'dart:io';
-
 import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
 
+// Widgets
+import 'package:frontend/Screens/Widgets/SignPage/signup_widget.dart';
+
 // Colors
 import 'package:frontend/Constants/colors.dart';
+
+// Components
+import 'package:frontend/Components/bottom_nav.dart';
 
 class SignPage extends StatefulWidget {
   @override
@@ -40,43 +45,9 @@ class _SignPage extends State<SignPage> {
           padding: EdgeInsets.all(20),
           child: Column(
             children: [
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  Container(
-                    width: 150,
-                    height: 50,
-                    decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(10),
-                      color: ColorTheme.appTertiary
-                    ),
-                    child: Row(
-                      spacing: 5,
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        Icon(Icons.person_add_alt_1,color: Colors.white,size: 30,),
-                        Text("Sign Up",style: TextStyle(color: Colors.white,fontSize: 25),)
-                      ],
-                    ),
-                  ),
-                  Container(
-                    width: 150,
-                    height: 50,
-                    decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(10),
-                      color: ColorTheme.appSecondary
-                    ),
-                    child: Row(
-                      spacing: 5,
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        Icon(Icons.login,color: ColorTheme.textSecondary,size: 30,),
-                        Text("Sign In",style: TextStyle(color: ColorTheme.textSecondary,fontSize: 25),)
-                      ],
-                    ),
-                  )
-                ],
-              ),
+
+              // Top Bar
+              SignupWidget.signupTopBar(context),
               SizedBox(height: 100,),
               Center(
                 child: Column(
@@ -166,6 +137,13 @@ class _SignPage extends State<SignPage> {
                           ]
                         )
                       ),
+                    ),
+
+                    SizedBox(height: 90,),
+                    // Bottom bar
+                    Align(
+                      alignment: Alignment.bottomCenter,
+                      child: Nav(context,2),
                     )
                   ],
                 )

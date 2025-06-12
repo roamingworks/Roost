@@ -50,6 +50,7 @@ flutter:
     - assets/icons/go.svg
     - assets/icons/profile.svg
     - assets/images/breakfast-icon.svg
+    - assets/images/runboy.png
   fonts:
     - family: BriColage
       fonts:
