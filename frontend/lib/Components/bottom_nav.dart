@@ -67,7 +67,7 @@ Widget Nav(BuildContext context,int index) {
         ),
         GestureDetector(
           onTap: () {
-            Navigator.push(context, MaterialPageRoute(builder: (context) => SignPage()));
+            Navigator.push(context, MaterialPageRoute(builder: (context) => SignIn()));
           },
           child: Container(
             decoration: BoxDecoration(

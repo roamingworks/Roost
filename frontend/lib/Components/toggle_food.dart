@@ -1,5 +1,9 @@
+// package
 import 'package:flutter/material.dart';
+
+// Colors
 import 'package:frontend/Constants/colors.dart';
+
 
 class ToggleFoodButton extends StatefulWidget {
   final bool initialValue;

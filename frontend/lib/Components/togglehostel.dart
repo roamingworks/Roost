@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:frontend/Constants/colors.dart';
 
+// Models
+import 'package:frontend/Models/attendance.dart';
+
 class ToggleHostelButton extends StatefulWidget {
   const ToggleHostelButton({super.key});
 
@@ -9,11 +12,10 @@ class ToggleHostelButton extends StatefulWidget {
 }
 
 class _ToggleHostelButtonState extends State<ToggleHostelButton> {
-  bool outHostel = false;
 
   void toggleSwitch() {
     setState(() {
-      outHostel = !outHostel;
+      Attendance.inHostel = !Attendance.inHostel;
     });
   }
 
@@ -28,21 +30,21 @@ class _ToggleHostelButtonState extends State<ToggleHostelButton> {
         padding: const EdgeInsets.symmetric(horizontal: 5),
         decoration: BoxDecoration(
           border: Border.all(color: ColorTheme.appTertiary, width: 1),
-          color: outHostel ? ColorTheme.appSecondary : ColorTheme.appTertiary,
+          color: Attendance.inHostel ? ColorTheme.appTertiary : ColorTheme.appSecondary,
           borderRadius: BorderRadius.circular(30),
         ),
         child: Stack(
           children: [
             Padding(
               padding:
-                  outHostel ? EdgeInsets.only(left: 45) : EdgeInsets.only(right: 14),
+                  Attendance.inHostel ? EdgeInsets.only(left: 45) : EdgeInsets.only(right: 14),
               child: Align(
-                alignment: outHostel ? Alignment(-0.5, 0) : Alignment.center,
+                alignment: Attendance.inHostel ? Alignment(-1.5,0) : Alignment(0.2, 0),
                 child: Text(
-                  outHostel ? 'Away' : 'In Hostel',
+                  Attendance.inHostel ? 'In Hostel' : 'Away',
                   style: TextStyle(
                     color:
-                        outHostel ? ColorTheme.appTertiary: ColorTheme.appSecondary,
+                        Attendance.inHostel ? ColorTheme.appSecondary: ColorTheme.appTertiary,
                     fontSize: 16,
                     fontWeight: FontWeight.bold,
                   ),
@@ -53,13 +55,13 @@ class _ToggleHostelButtonState extends State<ToggleHostelButton> {
             AnimatedAlign(
               duration: const Duration(milliseconds: 300),
               curve: Curves.easeInOut,
-              alignment: outHostel ? Alignment.centerLeft : Alignment.centerRight,
+              alignment: Attendance.inHostel ? Alignment.centerRight : Alignment.centerLeft,
               child: Container(
                 width: 30,
                 height: 30,
                 decoration: BoxDecoration(
                   color:
-                      outHostel ? ColorTheme.appTertiary : ColorTheme.appSecondary,
+                      Attendance.inHostel ? ColorTheme.appSecondary : ColorTheme.appTertiary,
                   shape: BoxShape.circle,
                 ),
               ),

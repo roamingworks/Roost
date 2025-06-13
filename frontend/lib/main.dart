@@ -27,7 +27,7 @@ class MyApp extends StatelessWidget {
         "/stats": (context) => ViewState(),
         "/home": (context) => Home(),
         "/dashboard": (context) => MealPlannerDashboard(),
-        "/sign": (context) => SignPage()
+        "/sign": (context) => SignIn()
       },
     );
   }

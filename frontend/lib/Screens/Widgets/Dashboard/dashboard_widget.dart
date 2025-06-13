@@ -6,11 +6,15 @@ import 'package:frontend/Constants/colors.dart';
 
 // Package
 import 'package:intl/intl.dart';
-import 'package:frontend/Components/toggleFood.dart';
+import 'package:frontend/Components/toggle_food.dart';
+
+// Model
+import 'package:frontend/Models/meal.dart';
 
 
 class DashboardWidgets {
 
+  // Top Bar
   static Container topBar(BuildContext context) {
     return Container(
       decoration: BoxDecoration(
@@ -72,6 +76,7 @@ class DashboardWidgets {
     );
   }
 
+  // Date
   static Center dateWidget(BuildContext context){
     final formattedDate = DateFormat('d MMMM y').format(DateTime.now());
     return Center(
@@ -92,16 +97,9 @@ class DashboardWidgets {
   }
 
 
-
+  // Meal Selection
   static Center mealSelection(BuildContext build){
-
-    Map<String, bool> mealStatus = {
-      'breakfast': false,
-      'lunch': false,
-      'teaSnacks': false,
-      'dinner': false,
-    };
-
+    
     return Center(
       child: Column(
       spacing: 12,
@@ -117,7 +115,7 @@ class DashboardWidgets {
             // ),
               Text('Breakfast'),
               ToggleFoodButton(
-                initialValue: mealStatus['breakfast']!,
+                initialValue: Meal.mealStatus['breakfast']!,
               ),
             ],
           ),
@@ -128,7 +126,7 @@ class DashboardWidgets {
               spacing: 45,
               children: [
                 Text('   Lunch'),
-                ToggleFoodButton(initialValue: mealStatus['lunch']!),
+                ToggleFoodButton(initialValue: Meal.mealStatus['lunch']!),
               ],
             ),
           ),
@@ -139,7 +137,7 @@ class DashboardWidgets {
               children: [
                 Text('Tea/Snacks'),
                 ToggleFoodButton(
-                  initialValue: mealStatus['teaSnacks']!,
+                  initialValue: Meal.mealStatus['teaSnacks']!,
                 ),
               ],
             ),
@@ -150,7 +148,7 @@ class DashboardWidgets {
               spacing: 45,
               children: [
                 Text('     Dinner'),
-                ToggleFoodButton(initialValue: mealStatus['dinner']!),
+                ToggleFoodButton(initialValue: Meal.mealStatus['dinner']!),
               ],
             ),
           ),
@@ -159,6 +157,7 @@ class DashboardWidgets {
     );
   }
 
+  // Menu Title
   static Center todayMenuTitle(BuildContext context){
     return Center(
       child: Text(
@@ -172,6 +171,7 @@ class DashboardWidgets {
     );
   }
 
+  // Today Menu
   static Expanded todayMenu(BuildContext context){
     return Expanded(
       child: GridView.count(
