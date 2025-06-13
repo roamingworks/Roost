@@ -6,6 +6,7 @@ import 'package:flutter/material.dart';
 // Components
 import 'package:frontend/Components/togglehostel.dart';
 import 'package:frontend/Components/bottom_nav.dart';
+import 'package:frontend/Components/circle_paint.dart';
 
 // Themes
 import 'package:frontend/Constants/colors.dart';
@@ -21,23 +22,18 @@ class MealPlannerDashboard extends StatefulWidget {
 }
 
 class _MealPlannerDashboardState extends State<MealPlannerDashboard> {
-  int selectedDay = 3;
-  bool isInHostel = true;
-
+  int _tapCount = 0;
   final List<String> days = ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'];
-  final List<String> fullDays = [
-    'Monday',
-    'Tuesday',
-    'Wednesday',
-    'Thursday',
-    'Friday',
-    'Saturday',
-    'Sunday',
-  ];
 
+  void _increaseProgress() {
+    setState(() {
+      _tapCount = (_tapCount + 1) % 5; 
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
+    double progress = _tapCount / 4;
     return Scaffold(
       body: SafeArea(
         child: Padding(
@@ -49,50 +45,24 @@ class _MealPlannerDashboardState extends State<MealPlannerDashboard> {
               DashboardWidgets.topBar(context),
               SizedBox(height: 28),
 
+              // Weeks
               Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: List.generate(7, (index) {
-                  bool isSelected = index == selectedDay;
-                  return Expanded(
-                    child: GestureDetector(
-                      onTap: () {
-                        setState(() {
-                          selectedDay = index;
-                        });
-                      },
-                      child: Container(
-                        margin: EdgeInsets.symmetric(horizontal: 2),
-                        padding: EdgeInsets.symmetric(vertical: 12),
-                        decoration: BoxDecoration(
-                          color:
-                              isSelected
-                                  ? ColorTheme.appTertiary
-                                  : Colors.transparent,
-                          border: Border.all(
-                            color:
-                                isSelected
-                                    ? ColorTheme.appTertiary
-                                    : ColorTheme.textSecondary,
-                            width: 2,
-                          ),
-                          borderRadius: BorderRadius.circular(25),
-                        ),
-                        child: Text(
-                          days[index],
-                          textAlign: TextAlign.center,
-                          style: TextStyle(
-                            color:
-                                isSelected
-                                    ? ColorTheme.appSecondary
-                                    : ColorTheme.textSecondary,
-                            fontWeight: FontWeight.w500,
-                          ),
+                  return Column(
+                    children: [
+                      CustomPaint(
+                        painter: CircleProgressPainter(progress),
+                        child: SizedBox(
+                          width: 45,
+                          height: 45,
                         ),
                       ),
-                    ),
-                  );
+                      Text(days[index],style: TextStyle(color: ColorTheme.textSecondary),)
+                    ],
+                  ) ;
                 }),
               ),
-
               SizedBox(height: 24),
 
               // Date Widget
@@ -103,7 +73,7 @@ class _MealPlannerDashboardState extends State<MealPlannerDashboard> {
               Center(child: Column(children: [ToggleHostelButton()])),
               SizedBox(height: 20),
 
-              // Meal Selection
+              // Meal Toggle
               DashboardWidgets.mealSelection(context),
               SizedBox(height: 20),
 

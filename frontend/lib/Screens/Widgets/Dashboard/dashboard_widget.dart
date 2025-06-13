@@ -11,58 +11,65 @@ import 'package:frontend/Components/toggleFood.dart';
 
 class DashboardWidgets {
 
-  static Row topBar(BuildContext context) {
-    return Row(
-      children: [
-        Expanded(
-          child: ElevatedButton.icon(
-          onPressed: () {},
-          icon: Icon(
-            Icons.restaurant,
-            color: ColorTheme.appSecondary,
-          ),
-          label: Text(
-            'Plan Meal',
-            style: TextStyle(
-              fontSize: 20,
-              color: ColorTheme.appSecondary,
-              fontWeight: FontWeight.bold,
-            ),
-          ),
-          style: ElevatedButton.styleFrom(
-            backgroundColor: ColorTheme.appTertiary,
-            padding: EdgeInsets.symmetric(vertical: 12),
-            shape: RoundedRectangleBorder(
-              borderRadius: BorderRadius.circular(8),
-            ),
-          ),
-        ),
+  static Container topBar(BuildContext context) {
+    return Container(
+      decoration: BoxDecoration(
+        color: ColorTheme.appSecondary,
+        borderRadius: BorderRadius.circular(10)
       ),
-      SizedBox(width: 12),
-      Expanded(
-        child: OutlinedButton.icon(
-          onPressed: () {
-            Navigator.pushNamed(context, '/stats');
-          },
-          icon: Icon(
-            Icons.bar_chart,
-            color: ColorTheme.textSecondary,
-          ),
-          label: Text(
-            'View Stats',
-            style: TextStyle(
-              fontSize: 20,
-              color: ColorTheme.textSecondary,
+      padding: EdgeInsets.all(10),
+      child: Row(
+        children: [
+          Expanded(
+            child: ElevatedButton.icon(
+              onPressed: () {},
+              icon: Icon(
+                Icons.restaurant,
+                color: ColorTheme.appSecondary,
+              ),
+              label: Text(
+                'Plan Meal',
+                style: TextStyle(
+                  fontSize: 20,
+                  color: ColorTheme.appSecondary,
+                  fontWeight: FontWeight.bold,
+                ),
+              ),
+              style: ElevatedButton.styleFrom(
+                backgroundColor: ColorTheme.appTertiary,
+                padding: EdgeInsets.symmetric(vertical: 12),
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(8),
+                ),
+              ),
             ),
           ),
-          style: OutlinedButton.styleFrom(
-            padding: EdgeInsets.symmetric(vertical: 12),
-            side: BorderSide.none,
+          SizedBox(width: 12),
+          Expanded(
+            child: OutlinedButton.icon(
+              onPressed: () {
+                Navigator.pushNamed(context, '/stats');
+              },
+              icon: Icon(
+                Icons.bar_chart,
+                color: ColorTheme.textSecondary,
+              ),
+              label: Text(
+                'View Stats',
+                style: TextStyle(
+                  fontSize: 20,
+                  color: ColorTheme.textSecondary,
+                ),
+              ),
+              style: OutlinedButton.styleFrom(
+                padding: EdgeInsets.symmetric(vertical: 12),
+                side: BorderSide.none,
+              ),
+            ),
           ),
-        ),
+        ],
       ),
-      ],
-  );
+    );
   }
 
   static Center dateWidget(BuildContext context){
@@ -89,10 +96,10 @@ class DashboardWidgets {
   static Center mealSelection(BuildContext build){
 
     Map<String, bool> mealStatus = {
-      'breakfast': true,
+      'breakfast': false,
       'lunch': false,
       'teaSnacks': false,
-      'dinner': true,
+      'dinner': false,
     };
 
     return Center(

@@ -9,11 +9,11 @@ class ToggleHostelButton extends StatefulWidget {
 }
 
 class _ToggleHostelButtonState extends State<ToggleHostelButton> {
-  bool isOn = false;
+  bool outHostel = false;
 
   void toggleSwitch() {
     setState(() {
-      isOn = !isOn;
+      outHostel = !outHostel;
     });
   }
 
@@ -28,21 +28,21 @@ class _ToggleHostelButtonState extends State<ToggleHostelButton> {
         padding: const EdgeInsets.symmetric(horizontal: 5),
         decoration: BoxDecoration(
           border: Border.all(color: ColorTheme.appTertiary, width: 1),
-          color: isOn ? ColorTheme.appSecondary : ColorTheme.appTertiary,
+          color: outHostel ? ColorTheme.appSecondary : ColorTheme.appTertiary,
           borderRadius: BorderRadius.circular(30),
         ),
         child: Stack(
           children: [
             Padding(
               padding:
-                  isOn ? EdgeInsets.only(left: 45) : EdgeInsets.only(right: 14),
+                  outHostel ? EdgeInsets.only(left: 45) : EdgeInsets.only(right: 14),
               child: Align(
-                alignment: isOn ? Alignment(-0.5, 0) : Alignment.center,
+                alignment: outHostel ? Alignment(-0.5, 0) : Alignment.center,
                 child: Text(
-                  isOn ? 'Away' : 'In Hostel',
+                  outHostel ? 'Away' : 'In Hostel',
                   style: TextStyle(
                     color:
-                        isOn ? ColorTheme.appTertiary: ColorTheme.appSecondary,
+                        outHostel ? ColorTheme.appTertiary: ColorTheme.appSecondary,
                     fontSize: 16,
                     fontWeight: FontWeight.bold,
                   ),
@@ -53,13 +53,13 @@ class _ToggleHostelButtonState extends State<ToggleHostelButton> {
             AnimatedAlign(
               duration: const Duration(milliseconds: 300),
               curve: Curves.easeInOut,
-              alignment: isOn ? Alignment.centerLeft : Alignment.centerRight,
+              alignment: outHostel ? Alignment.centerLeft : Alignment.centerRight,
               child: Container(
                 width: 30,
                 height: 30,
                 decoration: BoxDecoration(
                   color:
-                      isOn ? ColorTheme.appTertiary : ColorTheme.appSecondary,
+                      outHostel ? ColorTheme.appTertiary : ColorTheme.appSecondary,
                   shape: BoxShape.circle,
                 ),
               ),
