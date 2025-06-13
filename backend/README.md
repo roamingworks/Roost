@@ -15,6 +15,18 @@
 
 ---
 
+## How to test?
+
+Use yaak - The API client for modern developers
+
+![Yaak Interface](../docs/yaak-interface.png)
+
+### Steps to setup Yaak
+
+Visit [Yaak Docs](https://feedback.yaak.app/help/collections/8721561-getting-started)
+
+Workspace data is available in `api-client/` folder
+
 <details>
     <summary>Database Structure</summary>
 
@@ -131,7 +143,7 @@
 
 ---
 
-### Complaint Management Routes
+### Complaint Management Routes (Not Implemented Yet)
 **Base Path:** `/api/complaints`
 **Authentication Required:** Yes
 
@@ -144,7 +156,7 @@
 
 ---
 
-### Payment Management Routes
+### Payment Management Routes (Not Implemented Yet)
 **Base Path:** `/api/payments`
 **Authentication Required:** Yes
 

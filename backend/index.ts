@@ -6,7 +6,7 @@ import authRoutes from "./routes/auth";
 import mealRoutes from "./routes/meal";
 // import complaintRoutes from "./routes/complaint";
 // import paymentRoutes from "./routes/payment";
-// import adminRoutes from "./routes/admin";
+import adminRoutes from "./routes/admin";
 
 dotenv.config();
 
@@ -28,7 +28,7 @@ app.use("/api/auth", authRoutes);
 app.use("/api/meals", mealRoutes);
 // app.use("/api/complaints", complaintRoutes);
 // app.use("/api/payments", paymentRoutes);
-// app.use("/api/admin", adminRoutes);
+app.use("/api/admin", adminRoutes);
 
 // Error handling
 app.use(

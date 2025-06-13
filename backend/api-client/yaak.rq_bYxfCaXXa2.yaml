@@ -2,9 +2,9 @@ type: http_request
 model: http_request
 id: rq_bYxfCaXXa2
 createdAt: 2025-03-16T11:07:20.253099
-updatedAt: 2025-06-12T05:46:04.231484
+updatedAt: 2025-06-12T15:05:22.652033
 workspaceId: wk_BiNVrVDc6b
-folderId: null
+folderId: fl_Qugxgc93td
 authentication:
   disabled: true
 authenticationType: bearer
@@ -24,10 +24,10 @@ headers:
 - enabled: true
   name: ''
   value: ''
-  id: wZ0cNdAWJt
+  id: AUA75fZcCG
 method: POST
 name: User Login
-sortPriority: 3000.0
+sortPriority: 1000.0
 url: ${[ BASE_URL ]}/api/auth/login/
 urlParameters:
 - enabled: true
