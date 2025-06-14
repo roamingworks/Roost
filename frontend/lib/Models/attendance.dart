@@ -1,3 +1,3 @@
-class Attendance {
+class AttendanceModel {
   static bool inHostel = false;
 }

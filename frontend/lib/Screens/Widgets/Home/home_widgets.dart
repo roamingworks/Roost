@@ -5,8 +5,8 @@ import 'package:frontend/Screens/dashboard.dart';
 
 class HomeWidgets {
 
-  static Column inHostelTitle(BuildContext context){
 
+  static Column inHostelTitle(BuildContext context,){
     DateTime now = DateTime.now();
     String formatted = DateFormat("MMM d 'at' HH:mm").format(now);
 
@@ -18,8 +18,9 @@ class HomeWidgets {
     );
   }
 
-  static Widget attendanceButton(BuildContext context){
+  static Widget attendanceButton(BuildContext context, VoidCallback handle){
     return GestureDetector(
+      onTap: handle,
       child: Container(
         width: 200,
         height: 200,
