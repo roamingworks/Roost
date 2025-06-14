@@ -19,7 +19,6 @@ class SignInWidget {
         User newUser = User(username: username!, password: password!);
       }
     }
-
     
     return Form(
       key: formKey,
