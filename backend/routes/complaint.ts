@@ -1,6 +1,6 @@
 import express from "express";
-import { Complaint } from "../models/Complaint";
-import auth from "../middleware/auth";
+import { Complaint } from "../models/complaint";
+import {auth} from "../middleware/auth";
 import multer from "multer";
 
 const upload = multer({ dest: "uploads/" });

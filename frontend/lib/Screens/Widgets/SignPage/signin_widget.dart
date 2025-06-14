@@ -5,18 +5,38 @@ import 'package:flutter/material.dart';
 // Model
 import 'package:frontend/Models/user.dart';
 
+// Controller
+import 'package:frontend/Controller/auth.dart';
+
 class SignInWidget {
   // Form
   static Form formRegister(BuildContext context){
 
-    String? username;
-    String? password;
     final formKey = GlobalKey<FormState>();
+    final TextEditingController usernameController = TextEditingController();
+    final TextEditingController passwordController = TextEditingController();
+    final authController = Auth();
 
     void _submitForm() async {
       if(formKey.currentState!.validate()){
         formKey.currentState!.save();
-        User newUser = User(username: username!, password: password!);
+        final user = User(
+          username: usernameController.text, 
+          password: passwordController.text
+        );
+
+        final token = await authController.signup(user);
+
+        if(token != null){
+          ScaffoldMessenger.of(context).showSnackBar(
+            SnackBar(content: Text("Signup successful"))
+          );
+        }
+        else{
+          ScaffoldMessenger.of(context).showSnackBar(
+            SnackBar(content: Text("Signup Failed!"))
+          );
+        }
       }
     }
     
@@ -28,6 +48,7 @@ class SignInWidget {
             width: 300,
             height: 50,
             child: TextFormField(
+              controller: usernameController,
               style: TextStyle(color: ColorTheme.textSecondary),
               decoration: InputDecoration(
                 floatingLabelBehavior: FloatingLabelBehavior.never,
@@ -43,7 +64,6 @@ class SignInWidget {
                 }
                 return null;
               },
-              onSaved: (value) => username = value!,
             ),
           ),
           
@@ -52,6 +72,7 @@ class SignInWidget {
             width: 300,
             height: 50,
             child: TextFormField(
+              controller: passwordController,
               obscureText: true,
               style: TextStyle(color: ColorTheme.textSecondary),
               decoration: InputDecoration(
@@ -71,7 +92,6 @@ class SignInWidget {
                 }
                 return null;
               },
-              onSaved: (value) => password = value!,
             ),
           ),
           SizedBox(height: 40,),

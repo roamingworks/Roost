@@ -1,6 +1,6 @@
 import express from "express";
-import { Payment } from "../models/Payment";
-import auth from "../middleware/auth";
+import { Payment } from "../models/payment";
+import {auth} from "../middleware/auth";
 import multer from "multer";
 
 const upload = multer({ dest: "uploads/" });
