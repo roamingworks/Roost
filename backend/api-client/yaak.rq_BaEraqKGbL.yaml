@@ -2,7 +2,7 @@ type: http_request
 model: http_request
 id: rq_BaEraqKGbL
 createdAt: 2025-05-04T15:12:14.587615
-updatedAt: 2025-06-12T14:53:12.717470
+updatedAt: 2025-06-12T16:59:14.518666
 workspaceId: wk_BiNVrVDc6b
 folderId: fl_Qugxgc93td
 authentication: {}
@@ -12,7 +12,7 @@ body:
     {
       "username":"Mumbo",
       "password":"dumbo",
-      "role":"admin"
+      "role":"student"
     }
 bodyType: application/json
 description: ''
