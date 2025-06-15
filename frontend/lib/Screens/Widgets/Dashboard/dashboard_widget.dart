@@ -99,7 +99,7 @@ class DashboardWidgets {
 
   // Meal Selection
   static Center mealSelection(BuildContext build){
-    
+      
     return Center(
       child: Column(
       spacing: 12,
@@ -115,7 +115,7 @@ class DashboardWidgets {
             // ),
               Text('Breakfast'),
               ToggleFoodButton(
-                initialValue: Meal.mealStatus['breakfast']!,
+                initialValue: MealModel.mealStatus['breakfast']!,
               ),
             ],
           ),
@@ -126,7 +126,7 @@ class DashboardWidgets {
               spacing: 45,
               children: [
                 Text('   Lunch'),
-                ToggleFoodButton(initialValue: Meal.mealStatus['lunch']!),
+                ToggleFoodButton(initialValue: MealModel.mealStatus['lunch']!),
               ],
             ),
           ),
@@ -137,7 +137,7 @@ class DashboardWidgets {
               children: [
                 Text('Tea/Snacks'),
                 ToggleFoodButton(
-                  initialValue: Meal.mealStatus['teaSnacks']!,
+                  initialValue: MealModel.mealStatus['teaSnacks']!,
                 ),
               ],
             ),
@@ -148,7 +148,7 @@ class DashboardWidgets {
               spacing: 45,
               children: [
                 Text('     Dinner'),
-                ToggleFoodButton(initialValue: Meal.mealStatus['dinner']!),
+                ToggleFoodButton(initialValue: MealModel.mealStatus['dinner']!),
               ],
             ),
           ),

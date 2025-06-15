@@ -30,6 +30,25 @@ dependencies:
   image_picker: ^1.1.2
   shared_preferences: ^2.2.0
   http: ^1.4.0
+  flutter_native_splash: ^2.4.6
+  flutter_launcher_icons: ^0.14.4
+
+flutter_icons:
+  android: true
+  ios: true
+  image_path: "assets/images/Logo.jpg"
+
+flutter_native_splash:
+  color: "#ffffff"
+  image: assets/images/Logo.jpg
+  android: true
+  ios: true
+  web: false
+
+  android_12:
+    image: assets/images/Logo.jpg
+    icon_background_color: "#ffffff"
+
 
 dev_dependencies:
   flutter_test:
@@ -51,7 +70,7 @@ flutter:
     - assets/icons/calen.svg
     - assets/icons/go.svg
     - assets/icons/profile.svg
-    - assets/images/breakfast-icon.svg
+    - assets/images/Logo.jpg
     - assets/images/runboy.png
   fonts:
     - family: BriColage

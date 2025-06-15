@@ -1,5 +1,8 @@
 // Packages
 import 'package:flutter/material.dart';
+import 'package:frontend/Controller/meal.dart';
+import 'package:frontend/Models/meal.dart';
+import 'package:intl/intl.dart';
 
 // import 'package:flutter_svg/flutter_svg.dart';
 
@@ -7,6 +10,9 @@ import 'package:flutter/material.dart';
 import 'package:frontend/Components/togglehostel.dart';
 import 'package:frontend/Components/bottom_nav.dart';
 import 'package:frontend/Components/circle_paint.dart';
+
+// Models
+import 'package:frontend/Models/meal.dart';
 
 // Themes
 import 'package:frontend/Constants/colors.dart';
@@ -22,18 +28,34 @@ class MealPlannerDashboard extends StatefulWidget {
 }
 
 class _MealPlannerDashboardState extends State<MealPlannerDashboard> {
-  int _tapCount = 0;
-  final List<String> days = ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'];
 
-  void _increaseProgress() {
-    setState(() {
-      _tapCount = (_tapCount + 1) % 5; 
+
+  final MealController controller = MealController();
+
+  @override
+  void initState() {
+    super.initState();
+    controller.loadHistoryMeals().then((_) {
+      setState(() {
+        MealModel.mealCount = controller.getTodayMeals();
+      });
     });
   }
+  
+  final List<String> days = ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'];
+  String day = DateFormat('E').format(DateTime.now());
+
+
+  // void _increaseProgress() {
+  //   setState(() {
+  //     _tapCount = (_tapCount + 1) % 5; 
+  //   });
+  // }
 
   @override
   Widget build(BuildContext context) {
-    double progress = _tapCount / 4;
+
+    double progress = MealModel.mealCount! / 4;
     return Scaffold(
       body: SafeArea(
         child: Padding(
@@ -49,10 +71,25 @@ class _MealPlannerDashboardState extends State<MealPlannerDashboard> {
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: List.generate(7, (index) {
+                  if(days[index] == day){
+                    return Column(
+                      children: [
+                        CustomPaint(
+                          painter: CircleProgressPainter(progress),
+                          child: SizedBox(
+                            width: 45,
+                            height: 45,
+                          ),
+                        ),
+                        Text(days[index],style: TextStyle(color: ColorTheme.textSecondary),)
+                      ],
+                    );
+                  } 
+
                   return Column(
                     children: [
                       CustomPaint(
-                        painter: CircleProgressPainter(progress),
+                        painter: CircleProgressPainter(0),
                         child: SizedBox(
                           width: 45,
                           height: 45,
@@ -60,7 +97,7 @@ class _MealPlannerDashboardState extends State<MealPlannerDashboard> {
                       ),
                       Text(days[index],style: TextStyle(color: ColorTheme.textSecondary),)
                     ],
-                  ) ;
+                  );
                 }),
               ),
               SizedBox(height: 24),
