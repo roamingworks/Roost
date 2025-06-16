@@ -72,6 +72,12 @@ flutter:
     - assets/icons/profile.svg
     - assets/images/Logo.jpg
     - assets/images/runboy.png
+    - assets/images/Breakfast.png
+    - assets/images/Dinner.png
+    - assets/images/home.png
+    - assets/images/Lunch.png
+    - assets/images/meal.png
+    - assets/images/Tea.png
   fonts:
     - family: BriColage
       fonts:

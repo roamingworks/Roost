@@ -1,7 +1,7 @@
 // Packages
 import 'package:flutter/material.dart';
+import 'package:frontend/Controller/attendance.dart';
 import 'package:frontend/Controller/meal.dart';
-import 'package:frontend/Models/meal.dart';
 import 'package:intl/intl.dart';
 
 // import 'package:flutter_svg/flutter_svg.dart';
@@ -21,14 +21,16 @@ import 'package:frontend/Constants/colors.dart';
 import 'package:frontend/Screens/Widgets/Dashboard/dashboard_widget.dart';
 
 
+
 class MealPlannerDashboard extends StatefulWidget {
-  MealPlannerDashboard({super.key});
+  final AttendanceController controller;
+  MealPlannerDashboard(this.controller);
+
   @override
   _MealPlannerDashboardState createState() => _MealPlannerDashboardState();
 }
 
 class _MealPlannerDashboardState extends State<MealPlannerDashboard> {
-
 
   final MealController controller = MealController();
 
@@ -107,7 +109,7 @@ class _MealPlannerDashboardState extends State<MealPlannerDashboard> {
               SizedBox(height: 14),
 
               // Hostel Toggle Button
-              Center(child: Column(children: [ToggleHostelButton()])),
+              Center(child: Column(children: [ToggleHostelButton(controller: widget.controller,)])),
               SizedBox(height: 20),
 
               // Meal Toggle
@@ -123,7 +125,7 @@ class _MealPlannerDashboardState extends State<MealPlannerDashboard> {
               // Bottom bar
               Align(
                 alignment: Alignment.bottomCenter,
-                child: Nav(context,1),
+                child: Nav(context,1,widget.controller),
               )
             ],
           ),

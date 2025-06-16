@@ -7,46 +7,26 @@ import 'package:frontend/Screens/Widgets/Home/home_widgets.dart';
 // Controller
 import 'package:frontend/Controller/attendance.dart';
 
-// Models
-import 'package:frontend/Models/attendance.dart';
-
 class Home extends StatefulWidget {
+  final AttendanceController controller;
+  Home(this.controller);
   @override
   State<Home> createState() => HomeState();
 }
 
 class HomeState extends State<Home> {
 
-  final AttendanceController _controller = AttendanceController();
   @override
   void initState(){
     super.initState();
-    _loadTapStatus();
-  }
-
-  Future<void> _loadTapStatus() async {
-    final tapped = await _controller.isAttendanceToday();
-    setState(() {
-      AttendanceModel.inHostel = tapped;
+    widget.controller.init().then((_){
+      setState(() {});
     });
   }
 
-  Future<void> _handleTap() async {
-    if(AttendanceModel.inHostel){
-      ScaffoldMessenger.of(context).showSnackBar(
-        SnackBar(content: Text("You already Attendanced Today!"))
-      );
-      return;
-    }
-
-    await _controller.saveAttendance();
-    setState(() {
-      AttendanceModel.inHostel = true;
-    });
-
-    ScaffoldMessenger.of(context).showSnackBar(
-      SnackBar(content: Text("Attendation Successful")),
-    );
+  void _handleTap() async {
+    await widget.controller.AttendanceState();
+    setState(() {});
   }
 
   @override
@@ -60,13 +40,14 @@ class HomeState extends State<Home> {
               children: [
                 // Title
                 SizedBox(height: 100,),
-                HomeWidgets.inHostelTitle(context),
+                HomeWidgets.inHostelTitle(context, widget.controller),
 
+                // Attendance Button
                 SizedBox(height: 100,),
-                HomeWidgets.attendanceButton(context,_handleTap),
+                HomeWidgets.attendanceButton(context,_handleTap,widget.controller),
 
                 SizedBox(height: 50,),
-                HomeWidgets.attendShowButton(context),
+                HomeWidgets.attendShowButton(context,widget.controller),
 
               ],
             ),

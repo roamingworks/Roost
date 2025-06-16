@@ -1,5 +1,6 @@
 // UI Material
 import 'package:flutter/material.dart';
+import 'package:frontend/Controller/attendance.dart';
 
 // Widgets
 import 'package:frontend/Screens/Widgets/ViewState/view_state_widgets.dart';
@@ -8,6 +9,8 @@ import 'package:frontend/Screens/Widgets/ViewState/view_state_widgets.dart';
 import 'package:frontend/Components/bottom_nav.dart';
 
 class ViewState extends StatefulWidget {
+  final AttendanceController controller;
+  ViewState(this.controller);
   @override
   State<ViewState> createState() => _ViewSate();
 }
@@ -66,7 +69,7 @@ class _ViewSate extends State<ViewState> {
               // Bottom bar
               Align(
                 alignment: Alignment.bottomCenter,
-                child: Nav(context,1),
+                child: Nav(context,1,widget.controller),
               )
             ],
           ),

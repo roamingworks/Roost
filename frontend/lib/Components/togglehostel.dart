@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:frontend/Constants/colors.dart';
+import 'package:frontend/Controller/attendance.dart';
 
-// Models
-import 'package:frontend/Models/attendance.dart';
 
 class ToggleHostelButton extends StatefulWidget {
-  const ToggleHostelButton({super.key});
+  final AttendanceController controller;
+  const ToggleHostelButton({required this.controller});
 
   @override
   State<ToggleHostelButton> createState() => _ToggleHostelButtonState();
@@ -23,21 +23,21 @@ class _ToggleHostelButtonState extends State<ToggleHostelButton> {
         padding: const EdgeInsets.symmetric(horizontal: 5),
         decoration: BoxDecoration(
           border: Border.all(color: ColorTheme.appTertiary, width: 1),
-          color: AttendanceModel.inHostel ? ColorTheme.appTertiary : ColorTheme.appSecondary,
+          color: widget.controller.isHostel ? ColorTheme.appTertiary : ColorTheme.appSecondary,
           borderRadius: BorderRadius.circular(30),
         ),
         child: Stack(
           children: [
             Padding(
               padding:
-                  AttendanceModel.inHostel ? EdgeInsets.only(left: 45) : EdgeInsets.only(right: 14),
+                  widget.controller.isHostel ? EdgeInsets.only(left: 45) : EdgeInsets.only(right: 14),
               child: Align(
-                alignment: AttendanceModel.inHostel ? Alignment(-1.5,0) : Alignment(0.2, 0),
+                alignment: widget.controller.isHostel ? Alignment(-1.5,0) : Alignment(0.2, 0),
                 child: Text(
-                  AttendanceModel.inHostel ? 'In Hostel' : 'Away',
+                  widget.controller.isHostel ? 'In Hostel' : 'Away',
                   style: TextStyle(
                     color:
-                        AttendanceModel.inHostel ? ColorTheme.appSecondary: ColorTheme.appTertiary,
+                        widget.controller.isHostel ? ColorTheme.appSecondary: ColorTheme.appTertiary,
                     fontSize: 16,
                     fontWeight: FontWeight.bold,
                   ),
@@ -48,13 +48,13 @@ class _ToggleHostelButtonState extends State<ToggleHostelButton> {
             AnimatedAlign(
               duration: const Duration(milliseconds: 300),
               curve: Curves.easeInOut,
-              alignment: AttendanceModel.inHostel ? Alignment.centerRight : Alignment.centerLeft,
+              alignment: widget.controller.isHostel ? Alignment.centerRight : Alignment.centerLeft,
               child: Container(
                 width: 30,
                 height: 30,
                 decoration: BoxDecoration(
                   color:
-                      AttendanceModel.inHostel ? ColorTheme.appSecondary : ColorTheme.appTertiary,
+                      widget.controller.isHostel ? ColorTheme.appSecondary : ColorTheme.appTertiary,
                   shape: BoxShape.circle,
                 ),
               ),

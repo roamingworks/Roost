@@ -4,15 +4,15 @@ import 'package:flutter_svg/flutter_svg.dart';
 
 // Colors
 import 'package:frontend/Constants/colors.dart';
+import 'package:frontend/Controller/attendance.dart';
 
 // Screens
-import 'package:frontend/Screens/home.dart';
 import 'package:frontend/Screens/sign.dart';
 import 'package:frontend/Screens/dashboard.dart';
 
 
 
-Widget Nav(BuildContext context,int index) {
+Widget Nav(BuildContext context,int index, AttendanceController controller) {
   bool isCenter = index == 1;
   bool isLeft = index == 0;
   bool isRight = index == 2;
@@ -30,7 +30,7 @@ Widget Nav(BuildContext context,int index) {
       children: [
         GestureDetector(
           onTap: () {
-            Navigator.push(context, MaterialPageRoute(builder: (context) => Home()));
+            Navigator.pushNamed(context, '/home');
           },
           child: Container(
             decoration: BoxDecoration(
@@ -49,7 +49,7 @@ Widget Nav(BuildContext context,int index) {
 
         GestureDetector(
           onTap: () {
-            Navigator.push(context, MaterialPageRoute(builder: (context) => MealPlannerDashboard()));
+            Navigator.push(context, MaterialPageRoute(builder: (context) => MealPlannerDashboard(controller)));
           },
           child: Container(
             decoration: BoxDecoration(
