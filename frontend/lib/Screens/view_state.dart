@@ -1,5 +1,6 @@
 // UI Material
 import 'package:flutter/material.dart';
+import 'package:frontend/Components/calendar.dart';
 import 'package:frontend/Controller/attendance.dart';
 
 // Widgets
@@ -21,51 +22,53 @@ class _ViewSate extends State<ViewState> {
     return Scaffold(
       body: SafeArea(
         child: Padding(
-          padding: EdgeInsets.all(16.0),
+          padding: EdgeInsets.all(20),
           child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-
               // Top Bar 
               ViewStateWidgets.topBarView(context),
+              SizedBox(height: 40,),
 
-              Row(children: [Text("Meal Summary")]),
-
-              Column(
+              Row(
+                mainAxisAlignment: MainAxisAlignment.start,
                 children: [
-                  Row(
-                    children: [
-                      Text("Breakfast"),
-                      Text("Progress Bar Here"),
-                      Text("31/31"),
-                    ],
+                  Image.asset('assets/images/meal.png'),
+                  SizedBox(width: 15,),
+                  Text(
+                    "Meal Summary",
+                    style: TextStyle(
+                      fontSize: 20
+                    ),
                   ),
-                  Row(
-                    children: [
-                      Text("Lunch"),
-                      Text("Progress Bar Here"),
-                      Text("31/31"),
-                    ],
-                  ),
-                  Row(
-                    children: [
-                      Text("Tea/Snacks"),
-                      Text("Progress Bar Here"),
-                      Text("31/31"),
-                    ],
-                  ),
-                  Row(
-                    children: [
-                      Text("Dinner"),
-                      Text("Progress Bar Here"),
-                      Text("31/31"),
-                    ],
-                  ),
-                ],
+                  
+                ]
               ),
-
-              Text("Calender Wise Summary Here"),
-
+              SizedBox(height: 40,),
+              ViewStateWidgets.mealSummary(
+                filledCount: 10,
+                meal: 'Breakfast',
+                image: 'assets/images/Breakfast.png'
+              ),
+              SizedBox(height: 20,),
+              ViewStateWidgets.mealSummary(
+                filledCount: 20,
+                meal: 'Lunch',
+                image: 'assets/images/Lunch.png'
+              ),
+              SizedBox(height: 20,),
+              ViewStateWidgets.mealSummary(
+                filledCount: 30,
+                meal: 'Tea/Snacks',
+                image: 'assets/images/Tea.png'
+              ),
+              SizedBox(height: 20,),
+              ViewStateWidgets.mealSummary(
+                filledCount: 1,
+                meal: 'Dinner',
+                image: 'assets/images/Dinner.png'
+              ),
+              SizedBox(height: 20,),
+              Calendar.customCalendarWidget(context: context),
               // Bottom bar
               Align(
                 alignment: Alignment.bottomCenter,

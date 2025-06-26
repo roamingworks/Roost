@@ -1,6 +1,7 @@
 
 import 'package:frontend/Constants/colors.dart';
 import 'package:flutter/material.dart';
+import 'package:frontend/Components/rectangular_bar.dart';
 
 class ViewStateWidgets {
 
@@ -62,6 +63,26 @@ class ViewStateWidgets {
           ),
         ],
       ),
+    );
+  }
+
+  // Meal Summary
+  static Row mealSummary({
+    required String image,
+    required String meal,
+    required int filledCount
+  }) {
+    return Row(
+      mainAxisAlignment: MainAxisAlignment.center,
+      children: [
+        Image.asset(image),
+        SizedBox(width: 20,),
+        Text(meal),
+        SizedBox(width: 20,),
+        RectangleBar(filledCount: filledCount),
+        SizedBox(width: 20,),
+        Text('$filledCount/31')
+      ],
     );
   }
 
