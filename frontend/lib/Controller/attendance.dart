@@ -78,7 +78,7 @@ class AttendanceController {
       final timestamp = DateTime.parse(entry.timestamp);
       if (now.difference(timestamp).inDays >= 7) {
         await http.post(
-          Uri.parse('http://YOUR_BACKEND_URL/api/store-toggle'),
+          Uri.parse('http://localhost:5000/api/store-attendance'),
           headers: {'Content-Type': 'application/json'},
           body: json.encode(entry.toJson()),
         );
