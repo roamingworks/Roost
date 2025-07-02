@@ -84,39 +84,6 @@ Workspace data is available in `api-client/` folder
 
 ---
 
-### Complaint Model
-**File:** `models/Complaint.ts`
-**Description:** Manages student complaints and their resolution status.
-
-#### Fields:
-| Field | Type | Required | Description |
-|-------|------|----------|-------------|
-| `title` | String | Yes | Complaint title |
-| `description` | String | Yes | Detailed description |
-| `image` | String | No | Path to attached image |
-| `status` | String | Yes | 'pending' or 'resolved' |
-| `student` | ObjectId | Yes | Reference to User |
-| `createdAt` | Date | Yes | Timestamp of creation |
-| `adminViewed` | Boolean | Yes | Whether admin has seen complaint |
-
----
-
-### Payment Model
-**File:** `models/Payment.ts`
-**Description:** Handles fee payments and utility bills.
-
-#### Fields:
-| Field | Type | Required | Description |
-|-------|------|----------|-------------|
-| `type` | String | Yes | 'hostel', 'water', or 'electricity' |
-| `amount` | Number | Yes | Payment amount |
-| `status` | String | Yes | 'pending', 'paid', or 'approved' |
-| `photo` | String | No | Path to payment receipt |
-| `student` | ObjectId | Yes | Reference to User |
-| `createdAt` | Date | Yes | Timestamp of creation |
-
----
-
 </details>
 
 ## API Routes
