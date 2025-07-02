@@ -2,6 +2,7 @@ import express, { Request, Response } from "express";
 import jwt from "jsonwebtoken";
 import { User } from "../models/user";
 import bcrypt from "bcryptjs";
+import { auth, AuthenticatedRequest } from "../middleware/auth";
 
 const router = express.Router();
 
@@ -47,6 +48,10 @@ router.post("/login", async (req: Request, res: Response): Promise<void> => {
   } catch (error) {
     res.status(500).json({ error: "Login failed" });
   }
+});
+
+router.get("/profile", auth, (async (req: AuthenticatedRequest, res, next) => {
+
 });
 
 export default router;
