@@ -1,6 +1,6 @@
 # 🏠 Roost
 
-<img src="docs/roost-mockups.png" alt="Project Banner with Mockups" style="max-width: 1000px; width: 100%; height: auto; display: block; margin: 0 auto;" />
+<img src="docs/roost-mockups.jpg" alt="Project Banner with Mockups" style="max-width: 1000px; width: 100%; height: auto; display: block; margin: 0 auto;" />
 
 Roost is a mobile-first digital solution to streamline hostel-related operations such as student registration, attendance and food scheduling. It offers a centralized platform for both students and administrators to interact seamlessly and manage hostel life efficiently. Made using Flutter
 
