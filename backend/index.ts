@@ -4,8 +4,6 @@ import cors from "cors";
 import dotenv from "dotenv";
 import authRoutes from "./routes/auth";
 import mealRoutes from "./routes/meal";
-// import complaintRoutes from "./routes/complaint";
-// import paymentRoutes from "./routes/payment";
 import adminRoutes from "./routes/admin";
 
 dotenv.config();
@@ -26,8 +24,6 @@ mongoose
 // Routes
 app.use("/api/auth", authRoutes);
 app.use("/api/meals", mealRoutes);
-// app.use("/api/complaints", complaintRoutes);
-// app.use("/api/payments", paymentRoutes);
 app.use("/api/admin", adminRoutes);
 
 // Error handling

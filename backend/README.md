@@ -95,6 +95,7 @@ Workspace data is available in `api-client/` folder
 |----------|--------|-------------|---------|----------|
 | `/register` | POST | Register new user | `{ username, password, role, studentDetails? }` | Success message or error |
 | `/login` | POST | Authenticate user | `{ username, password }` | `{ token, role }` or error |
+| `/profile` | GET | Get user data | None | `{name, }` or error |
 
 ---
 
@@ -107,31 +108,6 @@ Workspace data is available in `api-client/` folder
 | `/today` | GET | Get today's meal plan | None | Meal object or 404 |
 | `/status` | PATCH | Update meal participation | `{ mealType, status }` | Updated meal object |
 | `/stats` | GET | Monthly meal statistics | None | `{ breakfast, lunch, teaSnacks, dinner }` stats |
-
----
-
-### Complaint Management Routes (Not Implemented Yet)
-**Base Path:** `/api/complaints`
-**Authentication Required:** Yes
-
-| Endpoint | Method | Description | Parameters | Response |
-|----------|--------|-------------|------------|----------|
-| `/` | POST | Submit new complaint | FormData: `title, description, image?` | Created complaint |
-| `/` | GET | Get student's complaints | None | Array of complaints |
-| `/admin` | GET | Admin view all complaints | None | Array with student details |
-| `/:id` | PATCH | Update complaint status | `{ status, adminViewed? }` | Updated complaint |
-
----
-
-### Payment Management Routes (Not Implemented Yet)
-**Base Path:** `/api/payments`
-**Authentication Required:** Yes
-
-| Endpoint | Method | Description | Parameters | Response |
-|----------|--------|-------------|------------|----------|
-| `/` | POST | Submit payment | FormData: `type, amount, photo?` | Created payment |
-| `/` | GET | Get student's payments | None | Array of payments |
-| `/:id/approve` | PATCH | Admin approve payment | None | Updated payment |
 
 ---
 

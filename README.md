@@ -1,23 +1,18 @@
-# 🏠 Digital Hostel Management Platform
+# 🏠 Roost
 
-This is a mobile-first digital solution to streamline hostel-related operations such as student registration, attendance, complaint tracking, food scheduling, and fee management. It offers a centralized platform for both students and administrators to interact seamlessly and manage hostel life efficiently.
+<img src="docs/roost-mockups.jpg" alt="Project Banner with Mockups" style="max-width: 1000px; width: 100%; height: auto; display: block; margin: 0 auto;" />
+
+Roost is a mobile-first digital solution to streamline hostel-related operations such as student registration, attendance and food scheduling. It offers a centralized platform for both students and administrators to interact seamlessly and manage hostel life efficiently. Made using Flutter
 
 ---
 
 ## 🚀 Features
 
 ### 👨‍🎓 Student View
-
-* **📋 Registration:**
-
-  * Upload Photo
-  * Phone Number Verification (via OTP)
-
 * **📊 Dashboard:**
 
   * Attendance tracking
-  * Pending payments (hostel, water, electricity)
-  * Complaints (Add/view with image upload & optional personal info)
+  * Meal tracking
 
 * **📆 Attendance:**
 
@@ -31,24 +26,12 @@ This is a mobile-first digital solution to streamline hostel-related operations 
 
 ---
 
-### 🛠️ Admin Dashboard
-
-* **👥 Student Management:**
+### 🛠️ Admin Dashboard (In Plans)
+* **👥 Student Management (Registration):**
 
   * Add/Update student details
   * Move students between rooms
   * Remove students
-
-* **🧾 Fee Management:**
-
-  * View and approve fee payments
-  * Bill photo uploads
-  * Split utility charges among roommates
-
-* **🗳️ Complaint Management:**
-
-  * View list of complaints (sorted by urgency)
-  * Mark as resolved or delete
 
 * **📈 Attendance Overview:**
 
@@ -67,14 +50,13 @@ This is a mobile-first digital solution to streamline hostel-related operations 
 | **Database**       | MongoDB Atlas                    |
 | **Authentication** | OTP-based login                  |
 | **Hosting**        | Vercel                           |
-| **File Storage**   | Cloud storage (for bills/images) |
+| **File Storage**   | Cloud storage (for profile images) |
 
 ---
 
 ## 🔐 Authentication
 
-* OTP-based login flow ensures security and ease of access.
-* No passwords required — quick and verified access via phone number.
+* username and passwords.
 
 ---
 
@@ -84,7 +66,7 @@ This is a mobile-first digital solution to streamline hostel-related operations 
 .
 ├── frontend/         # Flutter mobile app
 ├── backend/          # Node.js Express API
-├── docs/             # Planning & architecture
+├── docs/             # Planning & architecture, etc.
 └── README.md
 ```
 
@@ -92,13 +74,10 @@ This is a mobile-first digital solution to streamline hostel-related operations 
 
 ## 🛣️ Roadmap
 
-* ⏳ Food scheduling
-* ⏳ Monthly attendance analysis
-* ⏳ OTP-based login & registration
+* ✅ Food scheduling
+* ✅ Attendance toggle and overview
+* ✅ Monthly attendance analysis
 * ⏳ Basic admin dashboard
-* ⏳ Attendance toggle and overview
-* ⏳ Complaint submission with image
-* ⏳ Fee management with photo upload
 * ⏳ Admin room allocation flow
 * ⏳ UI polish & mobile responsiveness
 
@@ -106,8 +85,8 @@ This is a mobile-first digital solution to streamline hostel-related operations 
 
 ## 👥 Target Users
 
-* **Students:** Register, mark attendance, submit complaints, view and pay fees.
-* **Administrators:** Manage students, monitor attendance, resolve complaints, and process payments.
+* **Students:** Schedul meals and mark attendance.
+* **Administrators:** Manage students and monitor attendance.
 
 ---
 
