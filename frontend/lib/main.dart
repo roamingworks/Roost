@@ -20,6 +20,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      debugShowCheckedModeBanner: false,
       title: 'Roost',
       theme: ThemeData(
         useMaterial3: true,
@@ -46,7 +47,6 @@ class RootPage extends StatefulWidget {
 
 class _RootPage extends State<RootPage> {
   
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(

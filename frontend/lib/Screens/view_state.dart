@@ -43,7 +43,7 @@ class _ViewSate extends State<ViewState> {
                   
                 ]
               ),
-              SizedBox(height: 40,),
+              SizedBox(height: 30,),
               ViewStateWidgets.mealSummary(
                 filledCount: 10,
                 meal: 'Breakfast',

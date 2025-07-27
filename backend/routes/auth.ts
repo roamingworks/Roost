@@ -52,6 +52,6 @@ router.post("/login", async (req: Request, res: Response): Promise<void> => {
 
 router.get("/profile", auth, (async (req: AuthenticatedRequest, res, next) => {
 
-});
+}));
 
 export default router;
